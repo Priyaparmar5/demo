@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <style>
+        table {
+            width: 500;
+        }
+
+        b {
+            background-color: red;
+        }
+    </style>
+    <center>
+    <table border="2">
+        <tr>
+            <td><a href="/page?num=1&col_nm=id">ID</a></td>
+            <td><a href="/page?num=1&col_nm=fname">Fname</a></td>
+            <td><a href="/page?num=1&col_nm=lname">Lname</a></td>
+            <td><a href="/page?num=1&col_nm=contact">Contact</a></td>
+            <td><a href="/page?num=1&col_nm=city">City</a></td>
+            <td><a href="/page?num=1&col_nm=email">Email</a></td>
+            <td><a href="/page?num=1&col_nm=dob">DOB</a></td>
+        </tr>
+        <% data[1].forEach(entry=>{ %>
+            <tr>
+                <td><%=entry.id %>
+                </td>
+                <td>
+                    <%= entry.fname %>
+                </td>
+                <td>
+                    <%= entry.lname %>
+                </td>
+                <td>
+                    <%= entry.contact %>
+                </td>
+                <td>
+                    <%= entry.city %>
+                </td>
+                <td>
+                    <%= entry.email %>
+                </td>
+                <td>
+                    <%= entry.dob %>
+                </td>
+            </tr>
+            
+            <%})%>
+    </table>
+    </center>
+    <% if (curr_page==1){ %>
+        <a href="#">Previous</a>
+        <%} else { %>
+            <a href="/page?num=<%= curr_page-1%>">Previous</a>
+            <%}%>
+
+                <% for(i=1; i<=count; i++){ %>
+                    <% if (curr_page==i){%>
+                        <a href="/page?num=<%=i%>&col_nm=<%=col_n %>"><b><%= i%></b></a>
+                        <% } else {%>
+                            <a href="/page?num=<%= i%>&col_nm=<%=col_n%>">
+                        <%= i%>
+                        </a>
+                            <%}%>
+                                <%}%>
+                                    <% if(curr_page==count){ %>
+                                        <a href="#">Next</a>
+                                        <%}else {%>
+                                            <a href="/page?num=<%= curr_page+1%>">Next</a>
+                                            <%}%>
+</body>
+
+</html>

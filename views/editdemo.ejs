@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        table {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-weight: bolder;
+            background-color: rgb(192, 212, 248);
+            border: 2px solid rgba(250, 101, 2, 0.836);
+            width: 90%;
+            
+        }
+
+        tr,
+        td {
+            border: 1px solid rgba(250, 101, 2, 0.836);
+        }
+
+    
+        a:active,a:visited,a:link{
+            color: black;
+        }
+        b{
+            background-color: rgb(235, 141, 185);
+            font-size: larger;
+        }
+        .prv{
+            background-color:cadetblue;
+            
+        }
+        input{
+            border-color: rgb(211, 123, 16);
+            padding: 5px;
+            margin-left: 30px;
+            color: rgb(0, 15, 15);
+        }
+        
+       .style1{
+        background-color: bisque;
+        border-radius: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border: 1px solid rgba(250, 101, 2, 0.836);
+       }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+<body>
+    <form   method="post" action="/saveall" >
+    <center>
+        <h2 style="color:rgb(236, 112, 75)"> Data</h2>
+        
+       <br><br>
+       <table id="tbl1">
+        
+    
+        <tr id="tr1" style="color: darkred; font-size: larger;">
+            
+            
+            <td>Fname</td>
+            <td>Lname</td>
+            <td>contact</td>
+            <td>Address </td>
+               
+            <td>Save</td>
+            <td>Delete</td>
+
+        </tr>
+        <% for(var i=0;i<data.length;i++){%>
+            <tr >
+                <td hidden>
+                    <input type="text" value='<%= data[i].id%>' id="<%= data[i].id%>" name="id">
+                </td>
+            <td>
+                <input type="text" value='<%= data[i].fname%>' id="fname<%= data[i].id%>"  name="fname">
+            </td>
+            <td>
+                <input type="text" value='<%= data[i].lname%>' id="lname<%= data[i].id%>"  name="lname">
+            </td>
+            
+            <td>
+            
+                <input type="text" value='<%= data[i].contact%>' id="contact<%= data[i].id%>"  name="contact">
+            </td>
+            <td>
+                <input type="text" value='<%= data[i].address%>' id="address<%= data[i].id%>"  name="address">
+            </td>
+            <td><p id="<%=data[i].id%>" name="save" onclick="save(this.id)" >  <i class="material-icons" style="font-size:24px;color: rgb(9, 92, 34);">save</i></p></td>
+            <td><p id="<%=data[i].id%>" name="delete" onclick="delete1(this.id)" >    <i class="material-icons" style="font-size:24px;color: red;">delete</i>
+
+            </p></i></td>
+           
+        </tr>
+       
+            <% } %>
+       
+    </table>
+    <p onclick="func1()" value="add" style="font-size: 20px;margin-right: 82%;">  <i class="material-icons" style="font-size:22px;background-color: rgb(238, 101, 91);color: white;">add</i> Add Data</p>
+     <input type="submit"  value="Save All" style="font-size: 20px;background-color:  rgb(238, 101, 91);padding:10px;border-radius: 4px;border-color: rgb(236, 85, 39);color: white;">
+    <br>
+
+    </center>
+
+   
+</form>
+</body>
+<script>
+
+    var count1 = 1;
+ //for add new row
+     function func1() {
+         var table = document.getElementById("tbl1");
+         var tr = document.createElement("tr");
+         
+         tr.innerHTML = `  
+             <tr id="tr1">
+                <td hidden><input type="text" name="id"  id="id" ></td>
+
+                 <td><input type="text" name="fname"  id="fname" ></td>
+                 <td><input type="text" name="lname" id="lname" ></td>
+                 <td><input type="text" name="contact" id="contact" ></td>
+                 <td><input type="text" name="address" id="address" ></td>
+                 <td><p name="save" onclick="save(this.id)" >  <i class="material-icons" style="font-size:24px;color: rgb(9, 92, 34);">save</i></p></td>
+                    <td><p  name="delete" onclick="delete1(this.id)" >    <i class="material-icons" style="font-size:24px;color: red;">delete</i>
+
+             </tr>`
+         table.appendChild(tr)
+         
+     }
+     async function save(id) {
+       
+         var fname = document.getElementById(`fname${id}`).value;
+         var lname = document.getElementById(`lname${id}`).value;
+         var contact = document.getElementById(`contact${id}`).value;
+         var address = document.getElementById(`address${id}`).value;
+         fetch(`http://localhost:5002/save?id=${id}&fname=${fname}&lname=${lname}&contact=${contact}&address=${address}`);
+     }
+     async function delete1(id) {
+       alert('confirm delete?')
+       var fname = document.getElementById(`fname${id}`).value;
+       var lname = document.getElementById(`lname${id}`).value;
+       var contact = document.getElementById(`contact${id}`).value;
+       var address = document.getElementById(`address${id}`).value;
+       fetch(`http://localhost:5002/delete?id=${id}&fname=${fname}&lname=${lname}&contact=${contact}&address=${address}`);
+   }
+     async function add(){
+         var fname = document.getElementById("fname").value;
+         var lname = document.getElementById("lname").value;
+         var  contact = document.getElementById("contact").value;
+         var address = document.getElementById("address").value;
+         fetch(`http://localhost:5002/add?fname=${fname}&lname=${lname}&contact=${contact}&address=${address}`);
+         
+     }
+ 
+     async function saveall() {
+         var fname = document.getElementById("fname").value;
+         var lname = document.getElementById("lname").value;
+         var  contact = document.getElementById("contact").value;
+         var address = document.getElementById("address").value;
+         fetch(`http://localhost:5002/saveall?fname=${fname}&lname=${lname}&contact=${contact}&address=${address}`);
+     }
+ 
+ </script>
+
+</html>

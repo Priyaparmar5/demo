@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <table border="2">
+            <tr id="tab">
+                <td>stu_id</td>
+                <td>Fname</td>
+                <td>Lname</td>
+                <td>Contact</td>
+                <td>City</td>
+                <td>Email</td>
+                <td>Dob</td>
+            </tr>
+
+            <% for(i=0; i<10; i++){%>
+            <tr>
+                <td><%=data[i].id %></td>
+                <td><%=data[i].fname %></td>
+                <td><%=data[i].lname %></td>
+                <td><%=data[i].contact %></td>
+                <td><%=data[i].city %></td>
+                <td><%=data[i].email %></td>
+                <td><%=data[i].dob %></td>
+            </tr>
+            <% } %>
+        </table>
+    </body>
+</html>

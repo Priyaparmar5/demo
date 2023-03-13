@@ -1,0 +1,411 @@
+<html>
+    <head></head>
+    <h2 style="text-align: center;">Job Application Form</h2>
+    <style>
+        
+        .container
+        {
+            flex-direction: row;
+        }
+
+        table{
+            background-color: aliceblue;
+            border-spacing : 15px;  
+            font-size: 18px;
+        }
+        
+        fieldset {
+        background-color: aliceblue;
+        display: block;
+        margin-left: 30px;
+        margin-right: 30px;
+        padding-top: 0.35em;
+        padding-bottom: 0.625em;
+        padding-left: 0.75em;
+        padding-right: 0.75em;
+
+        border: 2px groove (internal value);
+        }
+    </style>
+    <script>
+        var s="";
+        var clk =1;
+        var c1=1;
+        var c=1;
+        var k=1;
+        var p="";
+        var q="";
+        var r="";
+
+        function priya4(){
+            var table= document.getElementById('languages');
+            var v1 = document.createElement('tr');
+            if(k == 1)
+                {
+                    v1.innerHTML='<tr> <td><select name="language" id="language"> <option value="php">php</option> <option value="Python">Python</option> <option value="Android">Android</option> <option value="ios">ios</option> </select></td> <td><input type="radio" id="Beginer" name="tech" value="Beginer">Beginer <input type="radio" id="Beginer" name="tech" value="Beginer">Mediator <input type="radio" id="Expert" name="tech" value="Expert">Expert<b></td> </tr><br><br>';
+                    table.append(v1);
+                    k++;
+                   // return false;
+                }
+                else if(k == 2)
+                {
+                    v1.innerHTML='<tr> <td><select name="language" id="language"> <option value="php">php</option> <option value="Python">Python</option> <option value="Android">Android</option> <option value="ios">ios</option> </select></td> <td><input type="radio" id="Beginer" name="tech1" value="Beginer">Beginer <input type="radio" id="Beginer" name="tech1" value="Beginer">Mediator <input type="radio" id="Expert" name="tech1" value="Expert">Expert<b></td> </tr><br><br>';
+                    table.append(v1);
+                    k++;
+                   // return false;
+                }
+                else if(k == 3)
+                {
+                    v1.innerHTML='<tr> <td><select name="language" id="language"> <option value="php">php</option> <option value="Python">Python</option> <option value="Android">Android</option> <option value="ios">ios</option> </select></td> <td><input type="radio" id="Beginer" name="tech2" value="Beginer">Beginer <input type="radio" id="Beginer" name="tech2" value="Beginer">Mediator <input type="radio" id="Expert" name="tech2" value="Expert">Expert<b></td> </tr><br><br>';
+                    table.append(v1);
+                    k++;
+                   // return false;
+                }
+                
+            }
+        function priya(){
+            var table2= document.getElementById('education_details');
+            var v2 = document.createElement('tr');
+            if(clk <= 3)
+                {
+                    v2.innerHTML=' <tr> <td><b>Course Name<b></td> <td><b><select name="course" id="course"> <option value="ssc">ssc</option> <option value="hsc">hsc</option> </select><b></td> <td><b>University/Board<b></td> <td><input  type="text"  /></td> <td><b>Passing year<b></td> <td><input  type="text"  /></td> <td><b>Percentage<b></td> <td><input  type="text"  /></td> </tr><br><br>';
+                    table2.append(v2);
+                    clk++;
+                    }
+                    else{
+                    return false;
+                }
+            }
+        function priya1(){
+            var table3= document.getElementById('experience');
+            var v3 = document.createElement('tr');
+        if(c <= 3)
+            {
+                v3.innerHTML=' <tr> <td><b>Company Name<b></td> <td><input  type="text"  /></td> <td><b>Designation<b></td> <td><input  type="text"  /></td> <td><b>From date*</b></td> <td><input  type="date"  /></td> <td><b>To date*</b></td> <td><input  type="date"  /></td>  </tr><br><br>';
+                table3.append(v3);
+                c++;
+               
+            }
+            else{
+                return false;
+            
+            }
+        }
+        function priya2(){
+            var table4= document.getElementById('lang');
+            var v4 = document.createElement('tr');
+            if(c1 <= 3)
+                {
+                    v4.innerHTML='<tr> <td><b><select name="language" id="language"> <option value="hindi">Hindi</option> <option value="English">English</option> <option value="Gujarati">Gujarati</option> </select><b></td> <td><b> <input type="checkbox" id="read" name="read" value="read">Read <input type="checkbox" id="write" name="write" value="Write">Write <input type="checkbox" id="speak" name="Speak" value="Speak">Speak<b></td>  </tr><br><br>';
+                    table4.append(v4);
+                    c1++;
+                }
+                else{
+                    return false;
+            
+                }
+            }
+        
+            function ValidateForm()
+            {
+               
+                var name =
+                    document.myForm.fname.value;
+                var email =
+                    document.forms.RegForm.EMail.value;
+                var phone =
+                    document.forms.RegForm.Telephone.value;
+                var what =
+                    document.forms.RegForm.Subject.value;
+                var password =
+                    document.forms.RegForm.Password.value;
+                var address =
+                    document.forms.RegForm.Address.value;
+                var regEmail=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/g;  //Javascript reGex for Email Validation.
+                var regPhone=/^\d{10}$/;                                        // Javascript reGex for Phone Number validation.
+                var regName = /\d+$/g;                                    // Javascript reGex for Name validation
+ 
+                if (name == "" || regName.test(name)) {
+                    window.alert("Please enter your name properly.");
+                    name.focus();
+                    return false;
+                }
+ 
+                if (address == "") {
+                    window.alert("Please enter your address.");
+                    address.focus();
+                    return false;
+                }
+                 
+                if (email == "" || !regEmail.test(email)) {
+                    window.alert("Please enter a valid e-mail address.");
+                    email.focus();
+                    return false;
+                }
+                  
+                
+                if (phone == "" || !regPhone.test(phone)) {
+                    alert("Please enter valid phone number.");
+                    phone.focus();
+                    return false;
+                }
+ 
+                if (what.selectedIndex == -1) {
+                    alert("Please enter your course.");
+                    what.focus();
+                    return false;
+                }
+ 
+                return true;
+            
+
+            }
+    </script>
+    <body bgcolor="#F9EEF7" >
+        <form id="EmploymentApplication100" name="myForm" method="post" onsubmit="return ValidateForm();">
+        
+            <fieldset style="padding: 10; margin-top: 10px; border-radius: 5px; border: 2px solid rgb(22, 98, 111); ">
+                <legend style="border: 2px solid rgb(22, 98, 111); color: rgb(7, 74, 52); background-color: rgb(250, 251, 253);font-size: 20px;margin-left: 15px;"><b>Basic Details</b></legend>
+                    <table>
+                        <tr>
+                            <td><b> First name *<b></td>
+                           <td><input  type="text" name="fname"  /></td>
+                            
+                           <td class="space"><b>Last name *</b></td>
+                           <td><input type="text"  /></td>
+                        
+                        </tr>
+                        <tr>
+                            <td><b> Designation *<b></td>
+                           <td><input  type="text" /></td>
+                            
+                           <td><b>Address1*</b></td>
+                           <td><input  type="text"  /></td>
+                        
+                        </tr>
+                        <tr>
+                            <td><b> Email *<b></td>
+                           <td><input  type="text"  /></td>
+                            
+                           <td><b>Address2*</b></td>
+                           <td><input  type="text"  /></td>
+                        
+                        </tr>
+                        <tr>
+                            <td><b> Phone Number *<b></td>
+                           <td><input  type="text"  /></td>
+                            
+                           <td><b>City<b></td>
+                            <td><select name="city" id="city">
+                                <option value="volvo">Ahmedabad</option>
+                                <option value="saab">Surat</option>
+                                <option value="mercedes">Rajkot</option>
+                                <option value="audi">Baroda</option>
+                            </select></td>
+                        </tr>
+                        <tr>
+                            <td><b>Gender<b></td>
+                            <td><input type="radio" id="Male" name="fav_language" value="Male">Male                       
+                            <input type="radio" id="Female" name="fav_language" value="Female">Female
+                            <input type="radio" id="others" name="fav_language" value="Others">Others<b></td>
+                            
+                            <td><b>Zip Code<b></td>
+                            <td><input  type="text"  /></td>
+                            
+                        </tr>
+
+                        <tr>
+    
+                            
+                           <td><b>Relationship Status<b></td>
+                            <td><select name="relation" id="relation">
+                                <option value="Single">Single</option>
+                                <option value="Married">Married</option>
+                                <option value="Divorced">Divorced</option>
+                                
+                            </select></td>
+
+                            <td><b>Date Of Birth*</b></td>
+                            <td><input  type="date"  /></td>
+                        </tr>
+                </table>
+                </fieldset>
+
+                <fieldset style="padding: 10; margin-top: 30px; border-radius: 5px;border: 2px solid rgb(22, 98, 111);">
+                    <legend  style="border: 2px solid rgb(22, 98, 111);background-color: rgb(250, 251, 253);font-size: 20px;margin-left: 15px;"><b>Education Details</b></legend>
+                        <table id="education_details">
+                            
+                            <tr>  
+                               <td><b>Course Name<b></td>
+                                <td><b><select name="course" id="course">
+                                    <option value="ssc">ssc</option>
+                                    <option value="hsc">hsc</option>
+                                   
+                                </select><b></td>
+
+                                <td><b>University/Board<b></td>
+                                <td><input  type="text"  /></td>
+
+                                <td><b>Passing year<b></td>
+                                <td><input  type="text"  /></td>
+                            
+                                <td><b>Percentage<b></td>
+                                <td><input  type="text"  /></td>
+                               
+                                
+                                <td><input  type="button" value="+" onclick="priya()" /><b></td>
+                            
+                            </tr>
+                           
+                    </table>
+                    <p id="p1"></p>
+                    </fieldset>
+
+
+                    <fieldset style="padding: 10; margin-top: 30px; border-radius: 5px; border: 2px solid rgb(22, 98, 111);">
+                        <legend  style="border: 2px solid rgb(22, 98, 111);background-color: rgb(250, 251, 253);font-size: 20px;margin-left: 15px;"><b>Work Experience<b></legend>
+                            <table id="experience" >
+                                
+                                <tr>    
+                                    <td><b>Company Name<b></td>
+                                    <td><input  type="text"  /></td>
+    
+                                    <td><b>Designation<b></td>
+                                    <td><input  type="text"  /></td>
+                                
+                                    <td><b>From date*</b></td>
+                                    <td><input  type="date"  /></td>
+
+                                    <td><b>To date*</b></td>
+                                    <td><input  type="date"  /></td>
+
+                                    <td><input  type="button" value="+" onclick="priya1()" /><b></td>
+                                
+                                </tr>
+                               
+                        </table>
+                        <p id="p2"></p>
+                        </fieldset>
+                       
+                        <fieldset style="padding: 10; margin-top: 30px;border-radius: 5px; border: 2px solid rgb(22, 98, 111);" >
+                            <legend  style="border: 2px solid rgb(22, 98, 111);background-color: rgb(250, 251, 253);font-size: 20px;margin-left: 15px;"><b>Language Known</b></legend>
+                                <table id="lang">
+                                    
+                                    <tr>
+                                     
+                                    <td><b><select name="language" id="language">
+                                    <option value="hindi">Hindi</option>
+                                    
+                                    <option value="English">English</option>
+                                    <option value="Gujarati">Gujarati</option>
+                                   
+                                    </select><b></td>
+
+                                    
+                                    <td><b>
+                                    <input type="checkbox" id="read" name="read" value="read">Read
+                                   
+                                    <input type="checkbox" id="write" name="write" value="Write">Write
+                                    
+                                    <input type="checkbox" id="speak" name="Speak" value="Speak">Speak<b></td>
+                                    <td><input  type="button" value="+" onclick="priya2()"/><b></td>
+                                    
+                                    </tr>
+                                   
+                            </table>
+                            <p id="p3"></p>
+                            </fieldset>
+
+                            <fieldset style="padding: 10; margin-top: 30px;border-radius: 5px; border: 2px solid rgb(22, 98, 111);" >
+                            <legend  style="border: 2px solid rgb(22, 98, 111);background-color: rgb(250, 251, 253);font-size: 20px;margin-left: 15px;"><b>Technologies you know</b></legend>
+                                <table id="languages" >
+                                    <tr>
+                                        <td><select name="language" id="language">
+                                            <option value="php">php</option>
+                                            <option value="Python">Python</option>
+                                            <option value="Android">Android</option>
+                                            <option value="ios">ios</option>
+                                        </select></td>
+                                        <td><input type="radio" id="Beginer" name="tech" value="Beginer">Beginer                       
+                                        <input type="radio" id="Beginer" name="tech" value="Beginer">Mediator
+                                        <input type="radio" id="Expert" name="tech" value="Expert">Expert<b></td>
+                                            <td><input  type="button" value="+" name="tech" onclick="priya4()"/><b></td>
+                                    
+                                    </tr>
+                                   
+                            </table>
+                            <p id="p4"></p>
+                            </fieldset>
+
+                            <fieldset style="padding: 10; margin-top: 30px;border-radius: 5px; border: 2px solid rgb(22, 98, 111);">
+                                <legend  style="border: 2px solid rgb(22, 98, 111);background-color: rgb(250, 251, 253);font-size: 20px;margin-left: 15px;"><b>Reference Contact</b></legend>
+                                    <table >
+                                        
+                                        <tr>
+                                            <td><b>  Name <b></td>
+                                           <td><input  type="text"  /></td>
+                                            
+                                           <td><b>Contact number </b></td>
+                                           <td><input type="text"  /></td>
+                                        
+                                           <td><b>Relation </b></td>
+                                           <td><input type="text"  /></td>
+                                        
+                                        </tr>
+                                       
+                                        <tr>
+                                            <td><b>  Name <b></td>
+                                           <td><input  type="text"  /></td>
+                                            
+                                           <td><b>Contact number </b></td>
+                                           <td><input type="text"  /></td>
+                                        
+                                           <td><b>Relation </b></td>
+                                           <td><input type="text"  /></td>
+                                        
+                                        </tr>
+                                       
+                                </table>
+                                </fieldset>
+                        </div>
+                                <fieldset style="padding: 10; margin-top: 30px;border-radius: 5px; border: 2px solid rgb(22, 98, 111);">
+                                    <legend  style="border: 2px solid rgb(22, 98, 111);background-color: rgb(250, 251, 253);font-size: 20px;margin-left: 15px;"><b>Preferences</b></legend>
+                                        <table >
+                                            
+                                            <tr>
+                                                <td><b>Prefered Location<b></td>
+                                                <td><select name="course" id="course">
+                                                    <option value="itemone">Item one</option>
+                                                    <option value="itemtwo">Item two</option>
+                                                   
+                                                </select></td>
+                                                
+                                               <td><b>Notice Period *</b></td>
+                                               <td><input type="text"  /><b></td>
+                                            
+                                               <td><b>Development<b></td>
+                                               <td><select name="course" id="course">
+                                                   <option value="design">Design</option>
+                                                   <option value="Marketing">Marketing</option>
+                                                  
+                                               </select></td>
+                                            
+                                            </tr>
+                                           
+                                            <tr>
+                                             
+                                               <td><b>Expected ctc *</b></td>
+                                               <td><input type="text"  /></td>
+                                            </tr>
+                                            <tr>
+                                               <td><b>current ctc *</b></td>
+                                               <td><input type="text"  /></td>
+                                            
+                                            </tr>
+                                           
+                                    </table>
+                                    </fieldset>
+
+       <input type="submit" style="margin-left: 600;margin-right: 300;margin-top: 10px;background-color: aquamarine;padding: 10;font-size: 20;border-radius: 5px;">
+    </body>
+</html>

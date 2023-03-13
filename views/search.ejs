@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        table {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-weight: bolder;
+            background-color: rgb(196, 236, 255);
+            border: 3px solid rgba(250, 101, 2, 0.836);
+            width: 70%;
+        }
+
+        tr,
+        td {
+            border: 1px solid rgba(250, 101, 2, 0.836);
+        }
+
+        /* a {
+            font-size: x-large;
+
+        } */
+        a:active,a:visited,a:link{
+            color: black;
+        }
+        b{
+            background-color: rgb(235, 141, 185);
+            font-size: larger;
+        }
+        .prv{
+            background-color:cadetblue;
+            
+        }
+       .style1{
+        background-color: bisque;
+        border-radius: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border: 2px solid rgba(250, 101, 2, 0.836);
+       }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+  
+    <center>
+        <h2 style="color:rgb(236, 112, 75)">Student Data</h2>
+       <form action="/searching" method="get">
+           <input type="text" name="search" class="style1" id="search" style="width:30%; " localhost="Go">
+           <select name="andor" class="style1" id="sel">
+            <option value="And">And</option>
+            <option value="Or">Or</option>
+           </select>
+           <input type="submit" class="style1" value="Search"><br><br>
+       </form>
+       <table >
+        <tr style="color: darkred; font-size: larger;">
+            <td><a href="/searching?number=1&curvar=sid">Id</a></td>
+            <td><a href="/searching?number=1&curvar=fname">Fname</a></td>
+            <td><a href="/searching?number=1&curvar=lname">Lname</a></td>
+            <td><a href="/searching?number=1&curvar=contact">contact</a></td>
+            <td><a href="/searching?number=1&curvar=city">city</a></td>
+            <td><a href="/searching?number=1&curvar=email">email </a></td>
+            <td><a href="/searching?number=1&curvar=dob">Dob</a></td>
+           
+        </tr>
+        <% for(var i=0;i<data_1.length;i++){%>
+            <tr>
+            <td>
+            <%= data_1[i].id%>
+            </td>
+            <td>
+            <%= data_1[i].fname%>
+            </td>
+            <td>
+            <%= data_1[i].lname%>
+            </td>
+         
+            <td>
+            <%= data_1[i].contact%>
+            </td>
+            <td>
+            <%= data_1[i].city%>
+            </td>
+            <td>
+            <%= data_1[i].email%>
+            </td>
+            <td>
+            <%= data_1[i].dob%>
+            </td>
+            </tr>
+            <% } %>
+           
+    </table>
+    </center>
+    
+</body>
+
+</html>

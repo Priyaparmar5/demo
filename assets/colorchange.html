@@ -1,0 +1,101 @@
+<html>
+    <h2 style="text-align: center;">Color change</h2>
+    <style>
+        table{
+        border-collapse: collapse; 
+        height: 400px;
+        width: 400px; 
+        border: 2px solid black;
+        border-radius: 3px;
+        }
+        .center{
+       margin-left: auto;
+       margin-right: auto;
+        }
+        
+    </style>
+<body>
+     
+    <center><input type="button" class="center" style="background-color: rgb(186, 224, 224); padding: 10;" id="b1" onclick="priya(); setTimer();" value="Start Game">
+</center>
+    
+    <div style="text-align: center;margin: 5px;" id="countdown"></div>
+
+    <table border ="1" id="t1"  align="center">
+        
+    </table>
+    <p id="timer" style="text-align: center;">Time :</p>
+    <p style="text-align: center; color: brown; font-size: 20px; font-weight: bold;" id = "count">Score</p>
+    <script>
+        row = 2;
+        column = 2;
+        var count = 0;
+
+        function setTimer()
+        {
+            var counter = 10;
+            var interval_p = setInterval(function()
+            {
+                counter--;
+                if(counter <= 0)
+                {
+                    clearInterval(interval_p);
+                    document.getElementById('timer').innerHTML = "Time Over" + alert("Time Over");
+                    document.getElementById('start').style.visibility = "visible";
+                    document.getElementById('t1').style.visibility = 'hidden';
+
+                    setTimeout(reloadPage, 1000);
+                    return;
+                }
+                else{
+                    document.getElementById('timer').innerHTML = counter;
+                }
+            },1000);
+        }
+
+        function reloadPage()
+        {
+            location.reload();
+            
+        }
+        function priya()
+        {
+            
+            row+=1;
+            column+=1;
+
+            var r_priya = Math.floor(Math.random() * (255 - 1) + 1);
+            var g_priya = Math.floor(Math.random() * (255 - 1) + 1);
+            var b_priya = Math.floor(Math.random() * (255 - 1) + 1);
+            
+            var random_r = Math.floor(Math.random() * (row -1)+ 1);
+            var random_c = Math.floor(Math.random() * (column -1)+ 1);
+
+            console.log(r_priya, g_priya, b_priya);
+            x = "";
+            for(var i=1; i<=row; i++)
+            {
+                x+= "<tr >";
+                for(var j=1; j<=column; j++)
+                {
+                    if(i == random_r && j == random_c)
+                    {
+                        x+= "<td style= background-color:rgba("+ r_priya + "," + g_priya + "," + b_priya+ ","+0.6+"); onclick='priya()'></td>";
+                        count++;
+                    }
+                    else if(i <=row && j<= column)
+                    {
+                        x += "<td style= background-color:rgb("+ r_priya + "," + g_priya + "," + b_priya+")></td>"
+                    }
+                    document.getElementById("count").innerHTML = "score:"+count ;
+
+                }
+                x+= "</tr>";
+            }
+            t1.innerHTML = x;
+
+                       
+        }
+    </script>
+</body>
+</html>

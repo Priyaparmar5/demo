@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        table {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-weight: bolder;
+            background-color: rgb(196, 236, 255);
+            border: 1px solid rgba(250, 101, 2, 0.836);
+            width: 90%;
+            
+        }
+
+        tr,
+        td {
+            border: 1px solid rgba(250, 101, 2, 0.836);
+        }
+
+        /* a {
+            font-size: x-large;
+
+        } */
+        a:active,a:visited,a:link{
+            color: black;
+        }
+        b{
+            background-color: rgb(235, 141, 185);
+            font-size: larger;
+        }
+        .prv{
+            background-color:cadetblue;
+            
+        }
+       .style1{
+        background-color: bisque;
+        border-radius: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border: 2px solid rgba(250, 101, 2, 0.836);
+       }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+  
+    <center>
+        <h2 style="color:rgb(236, 112, 75)">Job Application Data</h2>
+       
+        <form action="/search" method="get">
+           <input type="text" name="search" class="style1" id="search" style="width:30%; " localhost="Go">
+           <select name="andor" class="style1" id="sel">
+            <option value="And">And</option>
+            <option value="Or">Or</option>
+           </select>
+           <input type="submit" class="style1" value="Search">
+           
+       </form><a href="http://localhost:5001/" style="color:red;margin-left: 85%;">Go Back</a>
+       <p style="margin-right:82%;" onclick="deleteall()" >Delete Selected</p>
+       
+       <br><br>
+       <table id="2">
+        <tr style="color: darkred; font-size: larger;">
+            <td></td>
+            <td>Id</td>
+            <td>Fname</td>
+            <td>Lname</td>
+            <td>Designation</td>
+            <td>contact</td>
+            <td>Address </td>
+            <td>Address2</td>
+            <td>city</td>
+            <td>state</td>
+            <td>email</td>
+            <td>gender</td>
+            <td>dob</td>
+            <td>zip code</td>
+            <td> status</td>           
+            <td></td>
+        </tr>
+        <% for(var i=0;i<data.length;i++){%>
+            <tr id="<%= data[i].candidate_id%>">
+            <td><input type="checkbox" id="<%= data[i].candidate_id%>" class="dltall" value="<%= data[i].candidate_id%>"></td>
+            <td>
+            <%= data[i].candidate_id%>
+            </td>
+            <td>
+            <%= data[i].fname%>
+            </td>
+            <td>
+            <%= data[i].lname%>
+            </td>
+            <td>
+            <%= data[i].designation%>
+            </td>
+            <td>
+            
+            <%= data[i].contact%>
+            </td>
+            <td>
+            <%= data[i].address%>
+            </td>
+            <td>
+            <%= data[i].address2 %>
+            </td>
+            <td>
+            <%= data[i].city%>
+            </td>
+            <td>
+            <%= data[i].state%>
+            </td>
+           
+            <td>
+            <%= data[i].email%>
+            </td>
+            <td>
+            <%= data[i].gender%>
+            </td>
+            <td>
+            <%= data[i].dob%>
+            </td>
+            <td>
+                <%= data[i].zipcode%>
+            </td>
+             <td>
+                <%= data[i].relationship_status%>
+            </td>
+            <td>
+            <p id="<%= data[i].candidate_id %>" onclick="delfun(this.id)">Delete</p>
+            </td>
+        </tr>
+            <% } %>
+           
+    </table>
+    <br>
+   
+    </center>
+    <% if (curr_page==1){ %>
+        <a href="#">Previous</a>
+        <%} else { %>
+            <a href="/page?num=<%= curr_page-1%>">Previous</a>
+            <%}%>
+
+                <% for(i=1; i<=count; i++){ %>
+                    <% if (curr_page==i){%>
+                        <!-- <a href="#"><b><%= i%></b></a> -->
+                        <span onclick="page1(this)" id="<%= i%>"><%= i%></span>
+                        <% } else {%>
+                            <!-- <a href="/page?num=<%= i%>"> -->
+                                <span onclick="page1(this)" id="<%= i%>"><%= i%></span>
+                        
+                        <!-- </a> -->
+                            <%}%>
+                                <%}%>
+                                    <% if(curr_page==count){ %>
+                                        <a href="#">Next</a>
+                                        <%}else {%>
+                                            <a href="/page?num=<%= curr_page+1%>">Next</a>
+                                            <%}%>
+  
+    <script>
+        function page1 (p){
+            var pg=  p.id;
+            var ajax = true;
+            console.log('demo')
+            fetch(`http://localhost:5001/page?num=${pg}&ajax=${ajax}`)
+            .then((res)=>{return res.json()})
+            .then((data=>{console.log(data)
+            var t1 = document.getElementById('2');
+            temp = '';
+            temp+= `<tr style="color: darkred; font-size: larger;">
+             <td></td>
+             <td>Id</td>
+             <td>Fname</td>
+             <td>Lname</td>
+             <td>Designation</td>
+             <td>contact</td>
+             <td>Address </td>
+             <td>Address2</td>
+             <td>city</td>
+             <td>state</td>
+             <td>email</td>
+             <td>gender</td>
+             <td>dob</td>
+             <td>zip code</td>
+             <td> status</td>           
+             <td></td>
+         </tr>`;
+         for(var i=0; i<data.length; i++)
+         {
+          temp+=`<tr> <td></td> <td>
+            ${data[i].candidate_id}
+            </td>
+            <td>
+            ${data[i].fname}
+            </td>
+            <td>
+            ${data[i].lname}
+            </td>
+            <td>
+            ${data[i].designation}
+            </td>
+            <td>
+            
+        ${ data[i].contact}
+            </td>
+            <td>
+            ${data[i].address}
+            </td>
+            <td>
+            ${data[i].address2 }
+            </td>
+            <td>
+            ${data[i].city}
+            </td>
+            <td>
+        ${ data[i].state}
+            </td>
+           
+            <td>
+            ${data[i].email}
+            </td>
+            <td>
+            ${data[i].gender}
+            </td>
+            <td>
+        ${ data[i].dob}
+            </td>
+            <td>
+                ${data[i].zipcode}
+            </td>
+             <td>
+                ${data[i].relationship_status}
+            </td>
+            </tr>`
+         }
+         t1.innerHTML=temp;
+            }))
+        }
+      
+            
+
+
+    function delfun(id) {
+      
+        //console.log(id)
+
+        if (confirm('are you sure to delete?') == true) {
+            var deleteid = id;
+            fetch(`http://localhost:5001/delete?dltid=${deleteid}`);
+            document.getElementById(deleteid).style.display = 'none';
+            alert('your data delete')
+        }
+        else {
+            alert('your data not delete')
+        }
+    }
+
+    async function deleteall(){
+                var arr=[];
+                var ids = document.getElementsByClassName('dltall');
+                for(var i=0;i<ids.length;i++){
+                    if(ids[i].checked){
+                        arr.push(ids[i].value);
+                    }
+                }
+                console.log(arr);
+                if(confirm("confirm delete?")==true){
+                    for(var i=0;i<arr.length;i++){
+                        document.getElementById(`${arr[i]}`).style.display="none";
+                    }
+                    const ans = await fetch(`http://localhost:5001/dlt?cid=${arr}`);
+               }
+               else{
+                   console.log("not deleted")
+               }
+                
+            }
+   
+</script>
+</body>
+
+</html>

@@ -1,0 +1,265 @@
+
+body{
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+* {
+    box-sizing: border-box;
+}
+    
+.logo{
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    max-width: 1170px;
+    display: flex;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+nav{
+   margin-left: auto;
+    display: flex;
+}
+a{
+    margin: 20px;
+    text-decoration: none;
+    font-size: 18px;
+}
+ul{
+    
+    list-style: none;   
+    display: flex;
+    margin-top: 25px;
+}
+li{
+    text-decoration: none;
+}
+.container{
+    width:100%;
+     display: flex;
+ }
+ .child-container{
+    width: 50%;
+   margin-left: 60px;
+   border: 1px solid black;
+}
+h1{
+    font-size: 46px;
+    letter-spacing: 0.2px;
+}
+.child-container2{
+    margin:50px;
+    padding: 10PX;
+    width: 90%;
+    border: 1px solid black;
+}
+.mainimg{
+    height:600px ;
+    width:100% ;
+}
+.port{
+    background-color: rgb(39, 36, 36);
+    padding: 15px;
+    color: white;
+    width:200px;
+    text-align: center;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+.row-1{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -16px;
+    border: 1px solid blue;
+   
+    /* justify-content: space-between; */
+}
+.star-2{
+    display: flex;   
+    justify-content: center;
+}
+.star-3{
+    display: flex;   
+    justify-content: space-between;
+    /* margin-right: 15px; */
+}
+.col-1{
+    padding:0 16px;
+    width: 50%;
+}
+.col-3{
+    padding:0 16px;
+    width: 33.3333%;
+    border: 1px solid red;
+}
+.dark-blue{
+    color: #1565D8;
+    font-weight: 600;
+}
+.arrow{
+    float: right;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+.s2{
+    margin-top: 100px;
+    margin: 0 auto;
+    padding: 0 16px;
+    max-width: 1170px;
+ 
+}
+.s4{
+    margin-top: 100px;
+    
+}
+.blue{
+    color: rgb(127, 246, 255);
+    font-size: 14px;
+    font-weight: 700;
+}
+.section-s4{
+        border: 1px solid red;
+        margin-top: 100px;
+        margin: 0 auto;
+        padding: 0 16px;
+        max-width: 1170px;
+}
+
+.s3{
+    margin-top: 100px;
+    margin: 0 auto;
+    padding: 0 16px;
+    max-width: 1170px;
+    background-color: aliceblue;
+}
+.card{
+    border: 2px solid black;
+    border-radius: 12px;
+    padding: 50px;
+}
+.card-2{
+    /* border: 2px solid black; */
+   
+    padding: 10px;
+}
+.card-1{
+    border: 2px solid black;
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+}
+.col-2{
+    margin-top: 20px;
+    padding:0 16px;
+    width: 20%;
+}
+.col-4{
+    margin-top: 20px;
+    padding:0 16px;
+    width: 25%;
+}
+.icon{
+    height: 30px;
+
+}
+.container-s3{
+    display: flex;
+    flex-wrap: wrap;
+}
+.container-s5{
+   width: 100%;
+   padding: 30px;
+   background-color: rgb(112, 193, 224);
+   color: white;
+   text-align: center;
+}
+.heading{
+    width:33.3333%;
+    padding:0 16px ;
+    border: 1px solid black;
+}
+.heading2{
+    width:66%;
+    border: 1px solid black;
+    padding:0 16px ;
+}
+.container-s3{
+    padding:0 16px;
+    width: 33.3333%;
+   
+}
+.card1{
+    border: 2px solid black;
+    border-radius: 12px;
+    padding: 30px;
+    display: flex;
+    background-color: white;
+    margin-top: 10px;
+    border: 1px solid red;
+}
+.card2{
+    border: 2px solid black;
+    border-radius: 12px;
+    padding: 30px;
+    display: flex;
+    background-color: white;
+    margin-top: 10px;
+    border: 1px solid red;
+}
+.icon1{
+    margin-right: 10px;
+    margin-top: 10px;
+}
+.subtitle{
+    color: aqua;
+    font-size: 14px;
+}
+.heading3{
+    text-align: center;
+}
+.btn{
+    color: #1565D8;
+    border: 2px solid #1565D8;
+    border-radius: 8px;
+    padding: 10px ;
+    
+}
+.b1{
+    background-color: white;
+    color: black;
+    padding: 5px;
+    max-width: 200px;
+    border-radius: 10px;
+    margin-top: 40px;
+    margin-left:40%;
+}
+.col3{
+    padding:0 16px;
+    width: 20%;
+    color: white;
+}
+/* i{
+    color:white;
+    margin-right: 15px;
+} */
+footer{
+    background-color: rgb(49, 45, 45);
+    /* margin-top: 50px; */
+}
+.last{
+    color: white;
+    margin-top: 100px;
+    padding: 10px;
+    text-align: center;
+    justify-content: center;
+}
+.section2{
+    
+    padding-top: 100px;
+}
+.s6{
+    margin: 0 auto;
+    padding: 0 16px;
+    max-width: 1170px;
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <style>
+        table {
+            width: 500;
+        }
+
+        b {
+            background-color: red;
+        }
+    </style>
+    <center>
+        <h2>Data Display</h2>
+    <table border="2">
+        <tr>
+            <td>id</td>
+            <td>Fname</td>
+            <td>Lname</td>
+            <td>Contact</td>
+            <td>City</td>
+            <td>Email</td>
+            <td>Dob</td>
+        </tr>
+        <% data[1].forEach(entry=>{ %>
+            <tr>
+                <td>
+                    <%=entry.id %>
+                </td>
+                <td>
+                    <%= entry.fname %>
+                </td>
+                <td>
+                    <%= entry.lname %>
+                </td>
+                <td>
+                    <%= entry.contact %>
+                </td>
+                <td>
+                    <%= entry.city %>
+                </td>
+                <td>
+                    <%= entry.email %>
+                </td>
+                <td>
+                    <%= entry.dob %>
+                </td>
+            </tr>
+            <%})%>
+    </table>
+    <br>
+    </center>
+    <% if (curr_page==1){ %>
+        <a href="#">Previous</a>
+        <%} else { %>
+            <a href="/page?num=<%= curr_page-1%>">Previous</a>
+            <%}%>
+
+                <% for(i=1; i<=count; i++){ %>
+                    <% if (curr_page==i){%>
+                        <a href="#"><b><%= i%></b></a>
+                        <% } else {%>
+                            <a href="/page?num=<%= i%>">
+                        <%= i%>
+                        </a>
+                            <%}%>
+                                <%}%>
+                                    <% if(curr_page==count){ %>
+                                        <a href="#">Next</a>
+                                        <%}else {%>
+                                            <a href="/page?num=<%= curr_page+1%>">Next</a>
+                                            <%}%>
+</body>
+
+</html>

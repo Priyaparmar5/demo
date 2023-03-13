@@ -1,0 +1,5 @@
+Hello file system
+ This is append.js file to perform append operation
+ 
+ hii i'm priya
+ how are you

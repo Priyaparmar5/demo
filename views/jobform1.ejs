@@ -1,0 +1,379 @@
+<html>
+    <head></head>
+    <h2 style="text-align: center;">Job Application Form</h2>
+    <style>
+        
+        .container
+        {
+            flex-direction: row;
+        }
+
+        table{
+            background-color: aliceblue;
+            border-spacing : 15px;  
+            font-size: 18px;
+            color: darkslateblue;
+            border-color: cornflowerblue;
+        }
+        
+        fieldset {
+        background-color: aliceblue;
+        display: block;
+        margin-left: 30px;
+        margin-right: 30px;
+        padding-top: 0.35em;
+        padding-bottom: 0.625em;
+        padding-left: 0.75em;
+        padding-right: 0.75em;
+        border: 2px groove (internal value);
+        }
+    </style>
+    <script>
+        
+        var s="";
+        var clk =1;
+        var c1=1;
+        var c=1;
+        var k=1;
+        var p="";
+        var q="";
+        var r="";
+
+        function priya4(){
+            var table= document.getElementById('languages');
+            var v1 = document.createElement('tr');
+            if(k == 1)
+                {
+                    v1.innerHTML='<tr> <td><select name="language" id="language"> <option value="php">php</option> <option value="Python">Python</option> <option value="Android">Android</option> <option value="ios">ios</option> </select></td> <td><input type="radio" id="Beginer" name="tech" value="Beginer">Beginer <input type="radio" id="Beginer" name="tech" value="Beginer">Mediator <input type="radio" id="Expert" name="tech" value="Expert">Expert<b></td> </tr><br><br>';
+                    table.append(v1);
+                    k++;
+                   // return false;
+                }
+                else if(k == 2)
+                {
+                    v1.innerHTML='<tr> <td><select name="language" id="language"> <option value="php">php</option> <option value="Python">Python</option> <option value="Android">Android</option> <option value="ios">ios</option> </select></td> <td><input type="radio" id="Beginer" name="tech1" value="Beginer">Beginer <input type="radio" id="Beginer" name="tech1" value="Beginer">Mediator <input type="radio" id="Expert" name="tech1" value="Expert">Expert<b></td> </tr><br><br>';
+                    table.append(v1);
+                    k++;
+                   // return false;
+                }
+                else if(k == 3)
+                {
+                    v1.innerHTML='<tr> <td><select name="language" id="language"> <option value="php">php</option> <option value="Python">Python</option> <option value="Android">Android</option> <option value="ios">ios</option> </select></td> <td><input type="radio" id="Beginer" name="tech2" value="Beginer">Beginer <input type="radio" id="Beginer" name="tech2" value="Beginer">Mediator <input type="radio" id="Expert" name="tech2" value="Expert">Expert<b></td> </tr><br><br>';
+                    table.append(v1);
+                    k++;
+                   // return false;
+                }
+                
+            }
+        function priya(){
+            var table2= document.getElementById('education_details');
+            var v2 = document.createElement('tr');
+            if(clk <= 3)
+                {
+                    v2.innerHTML=`<tr> <td><b>Course Name<b></td> <td><b><select name="course" id="course"> <% for(let i=0; i<data['course'].length; i++){ %> <option value="<%=data['course'][i]['option_name']%>"> <%=data['course'][i]['option_name']%> </option> <% } %> </select><b></td> <td><b>University/Board<b></td> <td><input  type="text" name="uni" /></td> <td><b>Passing year<b></td> <td><input  type="text"  name="pass"/></td> <td><b>Percentage<b></td> <td><input  type="text" name="per"  /></td> </tr><br><br>`;
+                    table2.append(v2);
+                    clk++;
+                    }
+                    else{
+                    return false;
+                }
+            }
+        function priya1(){
+            var table3= document.getElementById('experience');
+            var v3 = document.createElement('tr');
+        if(c <= 3)
+            {
+                v3.innerHTML=' <tr> <td><b>Company Name<b></td> <td><input  type="text" name="company" /></td> <td><b>Designation<b></td> <td><input  type="text" name="designation_1"  /></td> <td><b>From date*</b></td> <td><input  type="date" name="fdate" /></td> <td><b>To date*</b></td> <td><input  type="date" name="tdate" /></td> <td><input  type="button" value="+" onclick="priya1()" /><b></td></tr><br><br>';
+                table3.append(v3);
+                c++;
+               
+            }
+            else{
+                return false;
+            
+            }
+        }
+        function priya2(){
+            var table4= document.getElementById('lang');
+            var v4 = document.createElement('tr');
+            if(c1 <= 3)
+                {
+                    v4.innerHTML='<tr> <td><b><select name="language" id="language"> <option value="hindi">Hindi</option> <option value="English">English</option> <option value="Gujarati">Gujarati</option> </select><b></td> <td><b> <input type="checkbox" id="read" name="read" value="read">Read <input type="checkbox" id="write" name="write" value="Write">Write <input type="checkbox" id="speak" name="Speak" value="Speak">Speak<b></td>  </tr><br><br>';
+                    table4.append(v4);
+                    c1++;
+                }
+                else{
+                    return false;
+            
+                }
+            }
+        //
+
+        async function getcity(state){
+             console.log(state);
+             console.log(state.value);
+             const ans = await fetch(`http://localhost:5002/getcity?stateid=${state.value}`);
+             const data = await ans.json();
+             var selectcity = document.getElementById('selectcity');
+             selectcity.innerHTML='';
+             for(let i=0;i<data.length; i++){
+                const option = new Option(data[i].city_name,data[i].city_name);
+                selectcity.add(option);
+             }
+
+        }
+        //
+ 
+    </script>
+    <body bgcolor="#F9EEF7" >
+        <form id="jobform" name="myForm" method="post" action="/job" onsubmit="return ValidateForm();">
+        
+            <fieldset style="padding: 10; margin-top: 10px; border-radius: 5px; border: 2px solid rgb(22, 98, 111); ">
+                <legend style="border: 2px solid rgb(22, 98, 111); color: rgb(7, 74, 52); background-color: rgb(250, 251, 253);font-size: 20px;margin-left: 15px;"><b>Basic Details</b></legend>
+                    <table>
+                        <tr>
+                            <td><b> First name *<b></td>
+                           <td><input  type="text" name="fname"  /></td>
+                            
+                           <td class="space"><b>Last name *</b></td>
+                           <td><input type="text"  name="lname"/></td>
+                        
+                        </tr>
+                        <tr>
+                            <td><b> Designation *<b></td>
+                           <td><input  type="text" name="designation" /></td>
+                            
+                           <td><b>Address1*</b></td>
+                           <td><input  type="text"  name="address"/></td>
+                        
+                        </tr>
+                        <tr>
+                            <td><b> Email *<b></td>
+                           <td><input  type="text" name="email" /></td>
+                            
+                           <td><b>Address2*</b></td>
+                           <td><input  type="text" name="add2" /></td>
+                        
+                        </tr>
+                        <tr>
+                            <td><b> Phone Number *<b></td>
+                           <td><input  type="text" name="contact"  /></td>
+                           <td><b>State<b></td>
+                            <td><select name="state" id="state" onchange="getcity(this)"> 
+                                <% for(let i=0; i<data['state'].length; i++){ %>
+                                <option value="<%=data['state'][i]['state_id']%>">
+                                    <%=data['state'][i]['state_name']%>
+                                </option>
+                               <% } %>
+                            </select></td>
+                          
+                          
+                        </tr>
+                        <tr>
+                            <td><b>Gender<b></td>
+                            <td><input type="radio" id="Male" name="gender" value="Male">Male                       
+                            <input type="radio" id="Female" name="gender" value="Female">Female
+                            <input type="radio" id="others" name="gender" value="Others">Others<b></td>
+                                <td><b>City<b></td>
+                                    <td>    
+            
+                                        <select name="city" id="selectcity"></select>
+                                    </td>
+                        
+                        </tr>
+
+                        <tr>
+    
+                            
+                           <td><b>Relationship Status<b></td>
+                            <td><select name="relationship" id="relationship" >
+                                
+                                <% for(let i=0; i<data['relationship'].length; i++){ %>
+                                    
+                                    <option value="<%=data['relationship'][i]['option_name']%>">
+                                        <%=data['relationship'][i]['option_name']%>
+                                    </option>
+                                   <% } %>
+                            </select></td>
+
+                            <td><b>Zip Code<b></td>
+                                <td><input  type="text" name="zip" /></td>
+                            
+                        </tr>
+                        <tr>
+                            <td><b>Date Of Birth*</b></td>
+                            <td><input  type="date" name="dob" /></td>
+                        </tr>
+                </table>
+                </fieldset>
+
+                <fieldset style="padding: 10; margin-top: 30px; border-radius: 5px;border: 2px solid rgb(22, 98, 111);">
+                    <legend  style="border: 2px solid rgb(22, 98, 111);background-color: rgb(250, 251, 253);font-size: 20px;margin-left: 15px;"><b>Education Details</b></legend>
+                        <table id="education_details">
+                            
+                            <tr>  
+                               <td><b>Course Name<b></td>
+                                <td><b><select name="course" id="course">
+                                    <% for(let i=0; i<data['course'].length; i++){ %>
+                                        <option value="<%=data['course'][i]['option_name']%>">
+                                            <%=data['course'][i]['option_name']%>
+                                        </option>
+                                       <% } %>
+                                   
+                                </select><b></td>
+
+                                <td><b>University/Board<b></td>
+                                <td><input  type="text" name="uni" /></td>
+
+                                <td><b>Passing year<b></td>
+                                <td><input  type="text"  name="pass"/></td>
+                            
+                                <td><b>Percentage<b></td>
+                                <td><input  type="text" name="per"  /></td>
+                               
+                                <td><input  type="button" value="+" onclick="priya()" /><b></td>
+                            
+                            </tr>
+                           
+                    </table>
+                    <p id="p1"></p>
+                    </fieldset>
+
+
+                    <fieldset style="padding: 10; margin-top: 30px; border-radius: 5px; border: 2px solid rgb(22, 98, 111);">
+                        <legend  style="border: 2px solid rgb(22, 98, 111);background-color: rgb(250, 251, 253);font-size: 20px;margin-left: 15px;"><b>Work Experience<b></legend>
+                            <table id="experience" >
+                                <tr> <td><b>Company Name<b></td> 
+                                    <td><input  type="text" name="company" /></td>
+                                     <td><b>Designation<b></td> <td><input  type="text" name="designation_1"  /></td> <td><b>From date*</b></td> 
+                                     <td><input  type="date" name="fdate" /></td>
+                                      <td><b>To date*</b></td> 
+                                      <td><input  type="date" name="tdate" /></td> <td><input  type="button" value="+" onclick="priya1()" /><b></td>
+                                </tr>
+                        
+                        </table>
+                        <p id="p2"></p>
+                        </fieldset>
+                       
+                        <fieldset style="padding: 10; margin-top: 30px;border-radius: 5px; border: 2px solid rgb(22, 98, 111);" >
+                            <legend  style="border: 2px solid rgb(22, 98, 111);background-color: rgb(250, 251, 253);font-size: 20px;margin-left: 15px;"><b>Language Known</b></legend>
+                                <table id="lang">
+                                    <% for(let i=0; i<data['language'].length; i++){ %>
+                                    <tr>
+                                      
+                                    <td><b>
+                                            <input type="checkbox" name="languageknown" value="<%=data['language'][i]['option_name']%>">
+                                            <%=data['language'][i]['option_name']%>
+                                            <input type="checkbox" name="read" value="<%=data['language'][i]['option_name']%>">Read
+                                            <input type="checkbox" name="write"  value="<%=data['language'][i]['option_name']%>">write
+                                            <input type="checkbox" name="speak"  value="<%=data['language'][i]['option_name']%>">speak
+                                           <% } %>
+                                   </td>
+                                
+                                    </tr>
+                                   
+                            </table>
+                            <p id="p3"></p>
+                            </fieldset>
+
+                            <fieldset style="padding: 10; margin-top: 30px;border-radius: 5px; border: 2px solid rgb(22, 98, 111);" >
+                            <legend  style="border: 2px solid rgb(22, 98, 111);background-color: rgb(250, 251, 253);font-size: 20px;margin-left: 15px;"><b>Technologies you know</b></legend>
+                                <table id="languages" >
+                                    <% for(let i=0; i<data['technology'].length; i++){ %>
+                                    <tr>
+                                        <td>
+                                                <input type="checkbox" name="technology1" value="<%=data['technology'][i]['option_name']%>">
+                                                    <%=data['technology'][i]['option_name']%>
+                                               
+                                               
+                                        </td>
+                                        <td><b></b></n><input type="radio" id="Beginer" name="<%=data['technology'][i]['option_name']%>" value="beginer">  Beginer                   
+                                        <input type="radio" id="mediator" name="<%=data['technology'][i]['option_name']%>" value="mediator">mediator
+                                        <input type="radio" id="Expert" name="<%=data['technology'][i]['option_name']%>" value="expert">Expert<b></td>
+                                          
+                                                <% } %>
+                                            </td>
+                                    
+                                    </tr>
+                                   
+                            </table>
+                            <p id="p4"></p>
+                            </fieldset>
+
+                            <fieldset style="padding: 10; margin-top: 30px;border-radius: 5px; border: 2px solid rgb(22, 98, 111);">
+                                <legend  style="border: 2px solid rgb(22, 98, 111);background-color: rgb(250, 251, 253);font-size: 20px;margin-left: 15px;"><b>Reference Contact</b></legend>
+                                    <table >
+                                        
+                                        <tr>
+                                           <td><b>  Name <b></td>
+                                           <td><input  type="text"  name="name"/></td>
+                                            
+                                           <td><b>Contact number </b></td>
+                                           <td><input type="text" name="phone"  /></td>
+                                        
+                                           <td><b>Relation </b></td>
+                                           <td><input type="text" name="relation_1" /></td>
+                                        
+                                        </tr>
+                                       
+                                        <tr>
+                                            <td><b>  Name <b></td>
+                                           <td><input  type="text" name="name1"  /></td>
+                                            
+                                           <td><b>Contact number </b></td>
+                                           <td><input type="text" name="phone1" /></td>
+                                        
+                                           <td><b>Relation </b></td>
+                                           <td><input type="text"  name="relation_2"/></td>
+                                        
+                                        </tr>
+                                       
+                                </table>
+                                </fieldset>
+                        </div>
+                                <fieldset style="padding: 10; margin-top: 30px;border-radius: 5px; border: 2px solid rgb(22, 98, 111);">
+                                    <legend  style="border: 2px solid rgb(22, 98, 111);background-color: rgb(250, 251, 253);font-size: 20px;margin-left: 15px;"><b>Preferences</b></legend>
+                                        <table >
+                                            
+                                            <tr>
+                                                <td><b>Prefered Location<b></td>
+                                                <td><select name="location" id="location">
+                                                    <% for(let i=0; i<data['pref_location'].length; i++){%>
+                                                        <option value="<%=data['pref_location'][i]['option_name'] %>">
+                                                            <%=data['pref_location'][i]['option_name'] %>
+                                                        </option>
+                                                        <%}%>
+                                                   
+                                                </select></td>
+                                                
+                                               <td><b>Notice Period *</b></td>
+                                               <td><input type="text"  name="notice"/><b></td>
+                                            
+                                               <td><b>Department<b></td>
+                                               <td><select name="department" id="department">
+                                                <% for(let i=0; i<data['department'].length; i++){ %>
+                                                    <option value="<%=data['department'][i]['option_name']%>">
+                                                        <%=data['department'][i]['option_name']%>
+                                                    </option>
+                                                   <% } %>
+                                               </select></td>
+                                            </tr>
+                                            <tr>                                             
+                                               <td><b>Expected ctc *</b></td>
+                                               <td><input type="text" name="expected"  /></td>
+                                            </tr>
+                                            <tr>
+                                               <td><b>current ctc *</b></td>
+                                               <td><input type="text"  name="current" /></td>
+                                            
+                                            </tr>
+                                           
+                                    </table>
+                                    </fieldset>
+
+       <input type="submit" style="margin-left: 600;margin-right: 300;margin-top: 10px;background-color: aquamarine;padding: 10;font-size: 20;border-radius: 5px;">
+
+       <!-- <input type="" style="margin-left: 600;margin-right: 300;margin-top: 10px;background-color: aquamarine;padding: 10;font-size: 20;border-radius: 5px;"> -->
+
+    </body>
+</html>

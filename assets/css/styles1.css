@@ -1,0 +1,443 @@
+body{
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+* {
+    box-sizing: border-box;
+}
+    
+.logo{
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    max-width: 1170px;
+    display: flex;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+nav{
+   margin-left: auto;
+    display: flex;
+}
+a{
+    margin: 20px;
+    text-decoration: none;
+    font-size: 18px;
+}
+ul{
+    
+    list-style: none;   
+    display: flex;
+    margin-top: 25px;
+}
+li{
+    text-decoration: none;
+}
+.b1{
+    color: #1565D8;
+    border: 2px solid #1565D8;
+    border-radius: 8px;
+    padding: 10px ;
+    
+}
+.container{
+   width:100%;
+    display: flex;
+}
+.child-container{
+    width: 50%;
+   margin-left: 60px;
+}
+h1{
+    font-size: 56px;
+    letter-spacing: 0.2px;
+}
+h2{
+    font-size: 30px;
+    letter-spacing: 0.2px;
+}
+
+.child-container2{
+    width: 90%;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between;
+   
+}
+.container-1{
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    
+}
+.container-2{
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    
+}
+.container-3{
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    
+}
+.container-4{
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    
+    
+}
+.icon{
+    margin-right: 10px;
+    
+}
+
+h4{
+    margin: 0px;
+}
+
+.b2{
+    border: 2px solid #1565D8;
+    background-color: #1565D8;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 15px;
+    border-radius: 5px;
+    margin-left: 0px;
+}
+.consultant{
+    margin-top: 10%;
+    
+}
+.s1,.s3,.s4,.s5{
+    margin-top: 6%;
+}
+.s2{
+    background-image: url('/home/priya-parmar/Desktop/TASK/site/assets/img/web page/bgimg.png');
+    background-repeat: no-repeat;
+    margin-top: 6%;
+   
+}
+.page2{
+    margin: 0 auto;
+    padding: 0 16px;
+    max-width: 1170px;
+    
+   }
+   .page6{
+    margin: 0 auto;
+    padding: 0 16px;
+    max-width: 1170px;
+    
+   }
+
+   .page5{
+    margin: 0 auto;
+    padding: 0 16px;
+    max-width: 1170px;
+    
+   }
+   .page3{
+    margin: 0 auto;
+    padding: 0 auto;
+    max-width: 1170px;
+    
+   }
+
+   .page4{
+    margin: 0 auto;
+    padding: 0 16px;
+    max-width: 1170px;
+    
+   }
+  
+
+.tagh4{
+    color: rgb(32, 163, 119);
+}
+
+.text1{
+    justify-content: center;
+   display: flex;
+    margin-top: 4%;
+    margin-right: 20px;
+}
+.txt1{
+    display: flex;
+    justify-content: center;
+    
+}
+.container-s1{
+    padding: 0 16px;
+    margin-top: 5%;
+}
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -16px;
+    border: 1px solid black;
+   
+    /* justify-content: space-between; */
+}
+.col{
+    padding:0 16px;
+    width: 33.3333%;
+}
+.card{
+    border: 2px solid black;
+    border-radius: 12px;
+    padding: 50px;
+}
+.card1{
+    border: 2px solid black;
+    border-radius: 12px;
+    /* padding: 40px; */
+    justify-content: center;
+    text-align: center;
+}
+
+.t1{
+    font-weight:700;
+    font-size: 20px;
+}
+.quote{
+   background-color: white;
+   border-radius: 10px;
+    padding: 30px;
+    font-size: 45px;
+    width:50%;
+}
+.bgimg1{  
+    padding: 16px;
+}
+.t2{
+    font-size: 30px;
+}
+.t4{
+    margin-left: 10px;
+}
+.txt2{
+    display: flex;
+    font-size: 18px;
+
+}
+.container-s3{
+    width: 33.3333%;
+    padding:0 16px;
+    margin-top: 20px;
+}
+.t6{
+    margin-right: 10px;
+}
+.home{
+    height: 50px;
+    /* margin-left: 0px; */
+    /* border: 1px solid black;
+    border-radius: 5px; */
+    
+}
+.p3{
+    font-size: 18px;
+    margin-top: 15px;
+    
+}
+.p4{
+    letter-spacing: 0.5px;
+}
+.i1{
+    font-size: 18px;
+    font-weight: bold;
+}
+.container-s4{
+    justify-content: center;
+    text-align: center;
+}
+/* .container-s5{
+    margin-top: 5%;
+    flex-wrap: wrap;
+    display: flex;
+    
+} */
+.base1{
+    padding: 0 16px;
+    background-image: url('/home/priya-parmar/Desktop/TASK/site/assets/img/web page/base1.png');
+    background-repeat: no-repeat;
+    width: 50%;
+  
+}
+.base2{
+    background-image: url('/home/priya-parmar/Desktop/TASK/site/assets/img/web page/base2.png');
+    background-repeat: no-repeat;
+    width: 50%;
+    padding: 0 16px;
+}
+.t7{
+    padding: 30px;
+    display: flex;
+    font-size: 20px;
+    color: white;
+}
+.base{
+    font-size: 40px;
+    color: white;
+    font-weight: bold;
+    margin-top: 360px;
+}
+.container-s5{
+   
+    margin-top: 5%;
+    border: 1px solid black;
+   display: flex;
+}
+.content{
+    padding: 10px;
+    border: 1px solid black;
+}
+.col1{
+    padding:0 16px;
+    /* border: 1px solid black;
+    border-radius: 12px; */
+    width:25%;
+}
+.star2{
+    display: flex;   
+    margin-top: 4px;
+}
+.star{
+    display: flex;   
+}
+.star-2{
+    display: flex;   
+    justify-content: center;
+}
+.star1{
+    margin-right: 5px;
+    height:20px;
+}
+.rate{
+    height: 40px;
+}
+.check1{
+    height: 20px;
+}
+.star-1{
+    height: 30px;
+}
+.p1{
+    display: flex;
+    margin-top: 10px;
+}
+.p2{
+    margin-left:15px;
+}
+.col2{
+    padding:0 16px;
+    /* border: 2px solid black;
+    border-radius: 12px; */
+    width: 33.3333%;
+    /* text-align: center; */
+}
+.photos{
+    background-image: url('D:/2023TRAINING/site/assets/img/web page/boy4.png');
+    background-repeat: no-repeat;
+    width:100%;
+   
+}
+.photos1{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+footer{
+    background-color: rgb(49, 45, 45);
+    margin-top: 50px;
+}
+.s6{
+    margin: 0 auto;
+    padding: 0 16px;
+    max-width: 1170px;
+}
+.container-s6{
+    padding:0 16px;
+    width: 50%;
+   
+    /* color: white; */
+   
+}
+.button1{
+    width: 150px;
+    margin-left: 10px;
+}
+.input1{
+    display: flex;
+}
+.input2{
+    width: 50%;
+    border-radius: 5px;
+}
+.section{
+    padding-top: 120px;
+}
+.font{
+    font-size: 30px;
+    color: white;
+}
+.white{
+    color: white;
+}
+.card-1{
+    background-color: white;
+    padding: 20px;
+    display: flex;
+    width:80%;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 10px;
+    margin-top: 30px;
+    /* border: 1px solid red; */
+}
+.overlap{
+    margin-top: 40px;
+
+}
+/* .card-2{
+    background-color: white;
+    padding: 20px;
+    display: flex;
+    width:70%;
+    border-radius: 10px;
+    z-index: 10;
+} */
+#id1{
+    z-index: 10;
+
+}
+#id2{
+    margin-left: 30px;
+    margin-top: -16px;
+}
+.section2{
+    margin-top: 120px;
+}
+.col3{
+    padding:0 16px;
+    width: 20%;
+    color: white;
+}
+i{
+    color:white;
+    margin-right: 15px;
+}
+.last{
+    color: white;
+    margin-top: 100px;
+    padding: 10px;
+    text-align: center;
+    justify-content: center;
+}

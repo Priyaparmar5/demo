@@ -1,0 +1,375 @@
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic tac toe</title>
+
+</head>
+<style>
+table,tr,td{
+    border: 1px solid rgb(165, 80, 80);
+    width: 300;
+    height: 100;
+    font-size: 24px;
+    text-align:  center;
+}
+
+table{
+    
+    background-color: #ffebcd;
+    
+}
+.center{
+    margin-left: auto;
+    margin-right: auto;
+}
+#priya_click{
+    font-size: 30px;
+}
+#result {
+ font-size: 20px;
+ margin: 5px;
+ text-align: center;
+ font-weight: bold;
+ color: red;
+ }
+
+ #print {
+        font-family: Verdana,
+            Geneva, Tahoma, sans-serif;
+ 
+        color: dodgerblue;
+        font-size: 20px;
+        text-align: center;
+    }
+</style>
+<body bgcolor="#ffe6e6">
+    <h1 style="text-align: center;color: darkcyan;">TIC TAC TOE</h2>  
+    <p style="text-align: center;">Player 1: O</p>
+    <p style="text-align: center;">Player 2: X</p>
+    
+    <table class="center">
+    
+        <tr>
+            <td id="1" onclick="return priya_function(this); reset()"></td>
+            <td id="2" onclick="return priya_function(this); reset()"></td>
+            <td id="3" onclick="return priya_function(this); reset()"></td>
+        </tr>
+        <tr>
+            <td id="4" onclick="return priya_function(this); reset()"></td>
+            <td id="5" onclick="return priya_function(this); reset()"></td>
+            <td id="6" onclick="return priya_function(this); reset()"></td>
+        </tr>
+        <tr>
+            <td id="7" onclick="return priya_function(this); reset()"></td>
+            <td id="8" onclick="return priya_function(this); reset()"></td>
+            <td id="9" onclick="return priya_function(this); reset()"></td>
+        </tr>
+    </table>
+    
+    <input type="reset" style="width:100px;margin:10 50%;position:relative;left:-50px; border:2px solid rgb(121, 32, 32); background-color: aliceblue;font-size: 20px; color: darkslateblue;" id="reset" onclick="reset()"> 
+
+    <p id="result" ></p>
+    <p id="print"></p>
+
+    <table id="count" class="center">
+        <tr>
+            <td>Player 1</td>
+            <td id="o_priya"></td>
+            
+        </tr>
+        <tr>
+            <td>Player 2</td>
+            <td id="x_priya"></td>
+            
+        </tr>
+    </table>
+<script>
+    var i_priya;
+    var id;
+    var xcount_priya = 0;
+    var ocount_priya = 0;
+   //
+   var b1, b2, b3, b4, b5, b6, b7, b8, b9;
+    b1 = document.getElementById("1").value;
+    b2 = document.getElementById("2").value;
+    b3 = document.getElementById("3").value;
+    b4 = document.getElementById("4").value;
+    b5 = document.getElementById("5").value;
+    b6 = document.getElementById("6").value;
+    b7 = document.getElementById("7").value;
+    b8 = document.getElementById("8").value;
+    b9 = document.getElementById("9").value;
+   //
+    
+    
+
+
+
+    function priya_function(priya_click) {
+    
+
+    if (i_priya == 0) {
+        
+        if (priya_click.innerHTML == "") {
+            priya_click.innerHTML = "X";
+            priya_click.style.color = "red";
+            //document.getElementById('print').innerHTML = "Player X Turn";
+            id = priya_click.id;
+            
+            
+
+            if (id == 1) {
+                if (document.getElementById('2').innerHTML == "X" && document.getElementById('3').innerHTML == "X" || 
+                    document.getElementById('4').innerHTML == "X" && document.getElementById('7').innerHTML == "X" || 
+                    document.getElementById('5').innerHTML == "X" && document.getElementById('9').innerHTML == "X") {
+                    document.getElementById('result').innerHTML = 'Player 2 Wins!';
+                    xcount_priya++;
+                    document.getElementById('x_priya').innerHTML = xcount_priya;
+
+                    return reset();
+                }
+                
+            }
+            else if (id == 2) {
+                if (document.getElementById('1').innerHTML == "X" && document.getElementById('3').innerHTML == "X" || 
+                    document.getElementById('5').innerHTML == "X" && document.getElementById('8').innerHTML == "X") {
+                    document.getElementById('result').innerHTML = 'Player 2 Wins!';
+                    xcount_priya++;
+                    document.getElementById('x_priya').innerHTML = xcount_priya;
+                    return reset();
+                }
+            }
+            else if (id == 3) {
+                if (document.getElementById('1').innerHTML == "X" && document.getElementById('2').innerHTML == "X" || 
+                    document.getElementById('6').innerHTML == "X" && document.getElementById('9').innerHTML == "X" ||
+                    document.getElementById('5').innerHTML == "X" && document.getElementById('7').innerHTML == "X") {
+                    document.getElementById('result').innerHTML = 'Player 2 Wins!';
+                    xcount_priya++;
+                    document.getElementById('x_priya').innerHTML = xcount_priya;
+                    return reset();
+                }
+            }
+            else if (id == 4) {
+                if (document.getElementById('1').innerHTML == "X" && document.getElementById('7').innerHTML == "X" || 
+                    document.getElementById('5').innerHTML == "X" && document.getElementById('6').innerHTML == "X") {
+                    document.getElementById('result').innerHTML = 'Player 2 Wins!';
+                    xcount_priya++;
+                    document.getElementById('x_priya').innerHTML = xcount_priya;
+                    return reset();
+                }
+            }
+            else if (id == 5) {
+                if (document.getElementById('2').innerHTML == "X" && document.getElementById('8').innerHTML == "X" || 
+                    document.getElementById('4').innerHTML == "X" && document.getElementById('6').innerHTML == "X" || 
+                    document.getElementById('3').innerHTML == "X" && document.getElementById('7').innerHTML == "X" || 
+                    document.getElementById('1').innerHTML == "X" && document.getElementById('9').innerHTML == "X") {
+                    document.getElementById('result').innerHTML = 'Player 2 Wins!';
+                    xcount_priya++;
+                    document.getElementById('x_priya').innerHTML = xcount_priya;
+                    return reset();
+                }
+            }
+            else if (id == 6) {
+                if (document.getElementById('3').innerHTML == "X" && document.getElementById('9').innerHTML == "X" || 
+                    document.getElementById('4').innerHTML == "X" && document.getElementById('5').innerHTML == "X") {
+                    document.getElementById('result').innerHTML = 'Player 2 Wins!';
+                    xcount_priya++;
+                    document.getElementById('x_priya').innerHTML = xcount_priya;
+                    return reset();
+                }
+            }
+            else if (id == 7) {
+                if (document.getElementById('8').innerHTML == "X" && document.getElementById('9').innerHTML == "X" || 
+                    document.getElementById('1').innerHTML == "X" && document.getElementById('4').innerHTML == "X" || 
+                    document.getElementById('3').innerHTML == "X" && document.getElementById('5').innerHTML == "X") {
+                    document.getElementById('result').innerHTML = 'Player 2 Wins!';
+                    xcount_priya++;
+                    document.getElementById('x_priya').innerHTML = xcount_priya;
+                    return reset();
+                }
+            }
+            else if (id == 8) {
+                if (document.getElementById('7').innerHTML == "X" && document.getElementById('9').innerHTML == "X" || 
+                    document.getElementById('2').innerHTML == "X" && document.getElementById('5').innerHTML == "X") {
+                    document.getElementById('result').innerHTML = 'Player 2 Wins!';
+                    xcount_priya++;
+                    document.getElementById('x_priya').innerHTML = xcount_priya;
+                    return reset();
+                }
+            }
+            else if (id == 9) {
+                if (document.getElementById('3').innerHTML == "X" && document.getElementById('6').innerHTML == "X" ||
+                    document.getElementById('7').innerHTML == "X" && document.getElementById('8').innerHTML == "X" || 
+                    document.getElementById('1').innerHTML == "X" && document.getElementById('5').innerHTML == "X") {
+                    document.getElementById('result').innerHTML = 'Player 2 Wins!';
+                    xcount_priya++;
+                    document.getElementById('x_priya').innerHTML = xcount_priya;
+                    return reset();
+                }
+            }
+            else if( b1 !="" && b2 !=""
+            && b3 !="" && b4 !=""
+            && b5 !="" && b6 !=""
+            && b7 !=""&& b8 !=""
+            && b9 !="") {
+            document.getElementById('result')
+                .innerHTML = "Match Tie";
+            window.alert('Match Tie');
+    
+            }
+           
+            return i_priya = 1;
+        }
+            
+    }
+    else {
+        
+        if (priya_click.innerHTML == "") {
+        priya_click.innerHTML = "O";
+        priya_click.style.color = "green";
+        //document.getElementById('print').innerHTML = "Player O Turn";
+        id = priya_click.id;
+            
+        if (id == 1) {
+            if (document.getElementById('2').innerHTML == "O" && document.getElementById('3').innerHTML == "O" || 
+                document.getElementById('4').innerHTML == "O" && document.getElementById('7').innerHTML == "O" ||
+                document.getElementById('5').innerHTML == "O" && document.getElementById('9').innerHTML == "O") {
+                document.getElementById('result').innerHTML = 'Player 1 Wins!';
+                ocount_priya++;
+                    document.getElementById('o_priya').innerHTML = ocount_priya;
+                return reset();
+            }
+            
+        }
+        else if (id == 2) {
+            if (document.getElementById('1').innerHTML == "O" && document.getElementById('3').innerHTML == "O" || 
+                document.getElementById('5').innerHTML == "O" && document.getElementById('8').innerHTML == "O") {
+                document.getElementById('result').innerHTML = 'Player 1 Wins!';
+                ocount_priya++;
+                    document.getElementById('o_priya').innerHTML = ocount_priya;
+                return reset();
+            }
+        }
+        else if (id == 3) {
+            if (document.getElementById('1').innerHTML == "O" && document.getElementById('2').innerHTML == "O" || 
+                document.getElementById('6').innerHTML == "O" && document.getElementById('9').innerHTML == "O" ||
+                document.getElementById('5').innerHTML == "O" && document.getElementById('7').innerHTML == "O") {
+                document.getElementById('result').innerHTML = 'Player 1 Wins!';    
+                ocount_priya++;
+                    document.getElementById('o_priya').innerHTML = ocount_priya;           
+                return reset();
+            }
+        }
+        else if (id == 4) {
+            if (document.getElementById('1').innerHTML == "O" && document.getElementById('7').innerHTML == "O" || 
+                document.getElementById('5').innerHTML == "O" && document.getElementById('6').innerHTML == "O") {
+                document.getElementById('result').innerHTML = 'Player 1 Wins!';
+                ocount_priya++;
+                    document.getElementById('o_priya').innerHTML = ocount_priya;
+                return reset();
+            }
+        }
+        else if (id == 5) {
+            if (document.getElementById('2').innerHTML == "O" && document.getElementById('8').innerHTML == "O" || 
+                document.getElementById('4').innerHTML == "O" && document.getElementById('6').innerHTML == "O" || 
+                document.getElementById('3').innerHTML == "O" && document.getElementById('7').innerHTML == "O" || 
+                document.getElementById('1').innerHTML == "O" && document.getElementById('9').innerHTML == "O") {
+                document.getElementById('result').innerHTML = 'Player 1 Wins!';
+                ocount_priya++;
+                    document.getElementById('o_priya').innerHTML = ocount_priya;
+                return reset();
+            }
+        }
+        else if (id == 6) {
+            if (document.getElementById('3').innerHTML == "O" && document.getElementById('9').innerHTML == "O" || 
+                document.getElementById('4').innerHTML == "O" && document.getElementById('5').innerHTML == "O") {
+                document.getElementById('result').innerHTML = 'Player 1 Wins!';
+                ocount_priya++;
+                    document.getElementById('o_priya').innerHTML = ocount_priya;
+                return reset();
+            }
+        }
+        else if (id == 7) {
+            if (document.getElementById('8').innerHTML == "O" && document.getElementById('9').innerHTML == "O" || 
+                document.getElementById('1').innerHTML == "O" && document.getElementById('4').innerHTML == "O" || 
+                document.getElementById('3').innerHTML == "O" && document.getElementById('5').innerHTML == "O") {
+                document.getElementById('result').innerHTML = 'Player 1 Wins!';
+                ocount_priya++;
+                    document.getElementById('o_priya').innerHTML = ocount_priya;
+                return reset();
+            }
+        }
+        else if (id == 8) {
+            if (document.getElementById('7').innerHTML == "O" && document.getElementById('9').innerHTML == "O" || 
+                document.getElementById('2').innerHTML == "O" && document.getElementById('5').innerHTML == "O") {
+                document.getElementById('result').innerHTML = 'Player 1 Wins!';
+                ocount_priya++;
+                    document.getElementById('o_priya').innerHTML = ocount_priya;
+                return reset();
+            }
+        }
+        else if (id == 9) {
+            if (document.getElementById('3').innerHTML == "O" && document.getElementById('6').innerHTML == "O" || 
+                document.getElementById('7').innerHTML == "O" && document.getElementById('8').innerHTML == "O" || 
+                document.getElementById('1').innerHTML == "O" && document.getElementById('5').innerHTML == "O") 
+                {
+                document.getElementById('result').innerHTML = 'Player 1 Wins!';
+                ocount_priya++;
+                    document.getElementById('o_priya').innerHTML = ocount_priya;
+                return reset();
+                }
+        }
+        // else if( b1 !="" && b2 !=""
+        //     && b3 !="" && b4 !=""
+        //     && b5 !="" && b6 !=""
+        //     && b7 !=""&& b8 !=""
+        //     && b9 !="") {
+        //     document.getElementById('result')
+        //         .innerHTML = "Match Tie";
+        //     window.alert('Match Tie');
+    
+        //     }
+        // else if(id == 1 && id == 2 && id == 3 && id == 4 && id == 5 && id == 6 &&id == 7 && id == 8 &&id == 9 ) {
+        // if(document.getElementById('1').innerHTML == "O" &&
+        //      document.getElementById('2').innerHTML == "O"  &&
+        //     document.getElementById('3').innerHTML == "O" && 
+        //     document.getElementById('4').innerHTML == "O"  &&
+        //     document.getElementById('5').innerHTML == "O"  && 
+        //     document.getElementById('6').innerHTML == "O"  &&
+        //     document.getElementById('7').innerHTML == "O"  && 
+        //     document.getElementById('8').innerHTML == "O"  &&
+        //     document.getElementById('6').innerHTML == "O"  ) {
+        //     document.getElementById('result')
+        //         .innerHTML = "Match Tie";
+        //     window.alert('Match Tie');   
+        //     }
+        // }
+            return i_priya = 0;
+        }
+    }
+    
+}
+       
+        
+
+    
+
+    function reset() {
+        
+        document.getElementById("1").innerText = "";
+        document.getElementById("2").innerText = "";
+        document.getElementById("3").innerText = "";
+        document.getElementById("4").innerText = "";
+        document.getElementById("5").innerText = "";
+        document.getElementById("6").innerText = "";
+        document.getElementById("7").innerText = "";
+        document.getElementById("8").innerText = "";
+        document.getElementById("9").innerText = "";
+        //location.reload();
+    }
+   </script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <style>
+        table {
+            width: 70%;
+        }
+
+        b {
+            background-color: rgb(230, 173, 173);
+            border: 1px solid black;
+        }
+        td{
+            background-color:rgb(232, 232, 241);
+            
+        }
+    </style>
+    <center>
+        <h1 style="color:rgb(89, 160, 160)">Student Data</h2>
+
+        <% if(sort=='DESC')
+        { %>
+            sort='ASC'
+        <% }else{ %>
+            sort=='DESC'
+        <% } %>
+    <table border="2">
+        <tr>
+            <td><a href="/page?num=1&col_nm=id&sort=ASC">ID</a></td>
+            <td><a href="/page?num=1&col_nm=fname&sort=ASC">Fname</a></td>
+            <td><a href="/page?num=1&col_nm=lname&sort=ASC">Lname</a></td>
+            <td><a href="/page?num=1&col_nm=contact&sort=ASC">Contact</a></td>
+            <td><a href="/page?num=1&col_nm=city&sort=ASC">City</a></td>
+            <td><a href="/page?num=1&col_nm=email&sort=ASC">Email</a></td>
+            <td><a href="/page?num=1&col_nm=dob&sort=ASC">DOB</a></td>
+        </tr>
+        <% data[1].forEach(entry=>{ %>
+            <tr>
+                <td>
+                    <%=entry.id %>
+                </td>
+                <td>
+                    <%= entry.fname %>
+                </td>
+                <td>
+                    <%= entry.lname %>
+                </td>
+                <td>
+                    <%= entry.contact %>
+                </td>
+                <td>
+                    <%= entry.city %>
+                </td>
+                <td>
+                    <%= entry.email %>
+                </td>
+                <td>
+                    <%= entry.dob %>
+                </td>
+            </tr>
+            <%})%>
+    </table><br>
+    </center>
+    <% if(sort=='DESC'){ %>
+        sort='ASC'
+    <% }else{ %>
+        sort='DESC'
+    <% } %>
+    <% if (curr_page==1){ %>
+        <a href="#">Previous</a>
+        <%} else { %>
+            <a href="/page?num=<%= curr_page-1%>">Previous</a>
+            <%}%>
+    
+                <% for(i=1; i<=count; i++){ %>
+    
+                    <% if (curr_page==i){%>
+                        <a href="/page?num=<%=i%>&col_nm=<%=col_n%>&sort=<%=sort%>"><b><%= i%></b></a>
+                    <% } else {%>
+    
+                        <a href="/page?num=<%= i%>&col_nm=<%=col_n%>&sort=<%=sort%>">
+                        <%= i%>
+                        </a><a href="/page?num=1&col_nm=lname"></a>
+                       <%}%>
+                    <%}%>
+                    <% if(curr_page==count){ %>
+                        <a href="#">Next</a>
+                    <%}else {%>
+                        <a href="/page?num=<%= curr_page+1%>">Next</a>
+            <%}%>
+            
+</body>
+
+</html>

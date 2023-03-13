@@ -1,0 +1,114 @@
+<html>
+
+<h2 style="color:cadetblue" >Color change</h2>
+<style>
+table,tr,td{
+    border: 1px solid rgb(0, 0, 0);
+    width: 300;
+    border-radius: 3px;
+    height: 100;
+    font-size: 24px;
+    text-align:  center;
+}
+
+table{
+    
+    visibility: hidden;
+    
+}
+
+</style>
+<script>
+
+   let row =3;
+   let col = 3;
+// function expandtable(x)
+// {
+//     row += 1;
+//     col += 1;
+//     generateTable();
+// }
+
+// function pickColor() {
+          
+//           // Array containing colors
+//           var colors = [
+//               '#ff0000', '#00ff00', '#0000ff',
+//               '#ff3333', '#ffff00', '#ff6600'
+//           ];
+            
+//           // selecting random color
+//           var random_color = colors[Math.floor(
+//                   Math.random() * colors.length)];
+            
+//           var x = document.getElementById('t1');
+//           x.style.color = random_color;
+//       }
+
+function generateTable(){
+    
+    row += 1;
+    col += 1;
+    var text = "";
+    var r = Math.floor(Math.random() * (255 - 1) + 1);
+    var g = Math.floor(Math.random() * (255 - 1) + 1);
+    var b = Math.floor(Math.random() * (255 - 1) + 1);
+            
+    var random_r = Math.floor(Math.random() * (row -1)+ 1);
+    var random_c = Math.floor(Math.random() * (column -1)+ 1);
+
+     console.log(r,g,b);
+           // x = "";
+
+       
+    //document.getElementById("t1").style.visibility ="hidden";
+
+    
+    for(let i=1; i<=row; i++){
+        text +="<tr>";
+    
+    for(let j=1; j<=col; j++){
+    
+        if(i == random_r && j == random_c)
+        {
+            text+= "<td style= background-color:rgba("+ r + "," + g + "," + b+ ","+0.6+"); onclick='generateTable()'></td>";
+        }
+        else if(i <=row && j<= col)
+        {
+            text += "<td style= background-color:rgb("+ r + "," + g + "," + b+")></td>"
+        }
+        //text += "<td onclick='expandtable(this); pickColor();'></td>";
+    }
+    text += "</tr>";
+
+}
+
+t1.innerHTML = text;
+
+
+document.getElementById("t1").innerHTML =text;
+
+    if(text == "")
+    {
+        document.getElementById("t1").style.visibility ="hidden";
+    }
+    else
+    {
+        document.getElementById("t1").style.visibility ="visible";
+    }
+    document.getElementById("b1").style.visibility ="hidden";
+    
+    return false;
+}
+//
+
+
+</script>
+
+<body>
+    
+    <input type="button" id="b1" style="background-color: aliceblue; color:darkblue; border-color: cadetblue;" value="Generate table" onclick=" generateTable()"><br><br>
+    <table border ="1" id="t1" style="border-collapse: collapse; height: 300px; width: 300px; " align="center">
+</body>
+
+</html>

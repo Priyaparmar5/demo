@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <table border="2">
+            <tr id="tab">
+                <td>stu_id</td>
+                <td>Fname</td>
+                <td>Lname</td>
+                <td>Contact</td>
+                <td>City</td>
+                <td>Email</td>
+                <td>Dob</td>
+            </tr>
+
+            <% for(i=0; i<40; i++){%>
+            <tr>
+                <td><%=data[i].id %></td>
+                <td><%=data[i].fname %></td>
+                <td><%=data[i].lname %></td>
+                <td><%=data[i].contact %></td>
+                <td><%=data[i].city %></td>
+                <td><%=data[i].email %></td>
+                <td><%=data[i].dob %></td>
+            </tr>
+            <% } %>
+        </table>
+        <table>
+            <td><a href="http://localhost:5002/1">1</a></td>
+            <td><a href="http://localhost:5002/2">2</a></td>
+            <td><a href="http://localhost:5002/3">3</a></td>
+            <td><a href="http://localhost:5002/4">4</a></td>
+            <td><a href="http://localhost:5002/5">5</a></td>
+            <td><a href="http://localhost:5002/6">6</a></td>
+            <td><a href="http://localhost:5002/7">7</a></td>
+            <td><a href="http://localhost:5002/8">8</a></td>
+            <td><a href="http://localhost:5002/9">9</a></td>
+        </table>
+    </body>
+</html>

@@ -1,0 +1,182 @@
+<%if (entry.gender == 'Male'){%>
+    <td><input type="radio" id="Male" name="gender" value="Male"checked>Male                       
+    <input type="radio" id="Female" name="gender" value="Female" >Female
+    <input type="radio" id="others" name="gender" value="Others">Others<b></td>
+    <%} else if (entry.gender == 'Female'){%>
+        <td><input type="radio" id="Male" name="gender" value="Male"checked>Male                       
+        <input type="radio" id="Female" name="gender" value="Female" checked>Female
+        <input type="radio" id="others" name="gender" value="Others">Others<b></td>
+        <%} else if (entry.gender == 'Others'){%>
+            <td><input type="radio" id="Male" name="gender" value="Male"checked>Male                       
+            <input type="radio" id="Female" name="gender" value="Female" >Female
+            <input type="radio" id="others" name="gender" value="Others" checked>Others<b></td>
+            <%}%>
+
+
+            con.query("select option_name from jobdb.option_master where select_id=1;", function (err, result) {
+                if (err) throw err;
+                state = result;
+                })
+                con.query("select option_name from jobdb.option_master where select_id=2;", function (err, result) {
+                if (err) throw err;
+                city = result;
+                
+                })
+                con.query("select option_name from jobdb.option_master where select_id=3;", function (err, result) {
+                if (err) throw err;
+                relationship = result;
+                
+                })
+                con.query("select option_name from jobdb.option_master where select_id=4;", function (err, result) {
+                    if (err) throw err;
+                    course = result;
+                    
+                    })
+            
+                    con.query("select option_name from jobdb.option_master where select_id=5;", function (err, result) {
+                        if (err) throw err;
+                        technology = result;
+                        
+                        })
+                con.query("select option_name from jobdb.option_master where select_id=6;", function (err, result) {
+                if (err) throw err;
+                department = result;
+                
+                })
+                con.query("select option_name from jobdb.option_master where select_id=7;", function (err, result) {
+                if (err) throw err;
+                pref_location = result;
+                
+                })
+                con.query("select option_name from jobdb.option_master where select_id=8;", function (err, result) {
+                if (err) throw err;
+                language = result;
+                
+                })
+
+                state,city, relationship, course,technology, department, pref_location,language 
+
+                //====today=============
+
+                <html>
+    <head></head>
+    <h2 style="text-align: center;">Job Application Form</h2>
+    <style>
+        
+        .container
+        {
+            flex-direction: row;
+        }
+
+        table{
+            background-color: aliceblue;
+            border-spacing : 15px;  
+            font-size: 18px;
+            color: darkslateblue;
+            border-color: cornflowerblue;
+        }
+        
+        fieldset {
+        background-color: aliceblue;
+        display: block;
+        margin-left: 30px;
+        margin-right: 30px;
+        padding-top: 0.35em;
+        padding-bottom: 0.625em;
+        padding-left: 0.75em;
+        padding-right: 0.75em;
+        border: 2px groove (internal value);
+        }
+    </style>
+  
+    <body bgcolor="#F9EEF7" >
+        <form id="jobform" name="myForm" method="post" action="/" onsubmit="return ValidateForm();">
+        
+            <fieldset style="padding: 10; margin-top: 10px; border-radius: 5px; border: 2px solid rgb(22, 98, 111); ">
+                <% data.forEach(entry=>{ %>
+                <legend style="border: 2px solid rgb(22, 98, 111); color: rgb(7, 74, 52); background-color: rgb(250, 251, 253);font-size: 20px;margin-left: 15px;"><b>Basic Details</b></legend>
+                    <table>
+                        <tr>
+                            <td><b> First name *<b></td>
+                           <td><input  type="text" name="fname" value="<%= entry.fname %>" /></td>
+                            
+                           <td class="space"><b>Last name *</b></td>
+                           <td><input type="text"  name="lname" value="<%= entry.lname %>" /></td>
+                        
+                        </tr>
+                        <tr>
+                            <td><b> Designation *<b></td>
+                           <td><input  type="text" name="designation" value="<%= entry.designation %>" /></td>
+                            
+                           <td><b>Address1*</b></td>
+                           <td><input  type="text"  name="address" value="<%= entry.address %>" /></td>
+                        
+                        </tr>
+                        <tr>
+                            <td><b> Email *<b></td>
+                           <td><input  type="text" name="email" value="<%= entry.email %>" /></td>
+                            
+                           <td><b>Address2*</b></td>
+                           <td><input  type="text" name="add2" value="<%= entry.address2 %>" /></td>
+                        
+                        </tr>
+                        <tr>
+                            <td><b> Phone Number *<b></td>
+                           <td><input  type="text" name="contact"  value="<%= entry.contact %>"  /></td>
+
+                           <td><b>State<b></td>
+                            <td><select name="state" id="state" onchange="getcity(this)"> 
+                                <% for(let i=0; i<state.length; i++){ %>
+                                <option value="<%=data['state'][i]['state_id']%>">
+                                    <%=data['state'][i]['state_name']%>
+                                </option>
+                               <% } %>
+                            </select></td>
+                          
+                          
+                        </tr>
+                        <tr>
+                            <td><b>Gender<b></td>
+                                <%if (entry.gender == 'Male'){%>
+                                    <td><input type="radio" id="Male" name="gender" value="Male"checked>Male                       
+                                    <input type="radio" id="Female" name="gender" value="Female" >Female
+                                    <input type="radio" id="others" name="gender" value="Others">Others<b></td>
+                                    <%} else if (entry.gender == 'Female'){%>
+                                        <td><input type="radio" id="Male" name="gender" value="Male"checked>Male                       
+                                        <input type="radio" id="Female" name="gender" value="Female" checked>Female
+                                        <input type="radio" id="others" name="gender" value="Others">Others<b></td>
+                                        <%} else if (entry.gender == 'Others'){%>
+                                            <td><input type="radio" id="Male" name="gender" value="Male"checked>Male                       
+                                            <input type="radio" id="Female" name="gender" value="Female" >Female
+                                            <input type="radio" id="others" name="gender" value="Others" checked>Others<b></td>
+                                            <%}%>
+                        </tr>
+
+                        <tr>
+    
+                            
+                           <td><b>Relationship Status<b></td>
+                            <td><select name="relationship" id="relationship" >
+                                
+                               
+                            </select></td>
+
+                            <td><b>Zip Code<b></td>
+                                <td><input  type="text" name="zip" /></td>
+                            
+                        </tr>
+                        <tr>
+                            <td><b>Date Of Birth*</b></td>
+                            <td><input  type="date" name="dob" /></td>
+                        </tr>
+                </table>
+                <% }) %>
+                </fieldset>
+
+              
+       <input type="submit" style="margin-left: 600;margin-right: 300;margin-top: 10px;background-color: aquamarine;padding: 10;font-size: 20;border-radius: 5px;">
+
+       <!-- <input type="" style="margin-left: 600;margin-right: 300;margin-top: 10px;background-color: aquamarine;padding: 10;font-size: 20;border-radius: 5px;"> -->
+
+    </body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        table {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-weight: bolder;
+            background-color: bisque;
+            border: 3px solid black;
+            width: 100%;
+        }
+
+        tr,
+        td {
+            border: 1px solid black;
+        }
+
+        a {
+            font-size: x-large;
+
+        }
+        a:active,a:visited,a:link{
+            color: black;
+        }
+        b{
+            background-color: chartreuse;
+            font-size: larger;
+        }
+        .prv{
+            background-color:cadetblue;
+            
+        }
+       
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+  
+    <center>
+       <form action="/form" method="get">
+           <input type="text" name="search" id="search" localhost="Search here">
+           <input type="submit" value="Search">
+       </form>
+       <table>
+        <tr style="color: darkred; font-size: larger;">
+            <td><a href="http://localhost:9045/page?number=1&curvar=sid">Id</a></td>
+            <td><a href="http://localhost:9045/page?number=1&curvar=fname">Fname</a></td>
+            <td><a href="http://localhost:9045/page?number=1&curvar=lname">Lname</a></td>
+            <td><a href="http://localhost:9045/page?number=1&curvar=dob">DOB</a></td>
+            <td><a href="http://localhost:9045/page?number=1&curvar=email">Email</a></td>
+            <td><a href="http://localhost:9045/page?number=1&curvar=contactno">Contact No</a></td>
+            <td><a href="http://localhost:9045/page?number=1&curvar=city">City</a></td>
+           
+        </tr>
+        <% for(var i=0;i<data.length;i++){%>
+            <tr>
+                <td>
+                    <%= data[i].sid%>
+                </td>
+                <td>
+                    <%= data[i].fname%>
+                </td>
+                <td>
+                    <%= data[i].lname%>
+                </td>
+                <td>
+                    <%= data[i].dob%>
+                </td>
+                <td>
+                    <%= data[i].email%>
+                </td>
+                <td>
+                    <%= data[i].contactno%>
+                </td>
+                <td>
+                    <%= data[i].city%>
+                </td>
+            </tr>
+            <% } %>
+    </table>
+    
+            
+
+       
+</body>
+
+</html>

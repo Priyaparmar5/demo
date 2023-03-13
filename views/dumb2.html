@@ -1,0 +1,179 @@
+<fieldset style="padding: 10; margin-top: 30px; border-radius: 5px;border: 2px solid rgb(22, 98, 111);">
+    <legend  style="border: 2px solid rgb(22, 98, 111);background-color: rgb(250, 251, 253);font-size: 20px;margin-left: 15px;"><b>Education Details</b></legend>
+        <table id="education_details">
+            <% course.forEach(entry=>{ %>
+            <tr>  
+               <td><b>Course Name<b>
+                <select name="course" id="course">
+                    <%for (var j=0;j<course.length;j++){%>
+                        <%if(course[j].option_name == entry.course_name){%>
+                        <option value="<%=course[j].option_name%>" name="<%=course[j].option_name%>"
+                            id="<%=course[j].option_name%>" selected>
+                            <%=course[j].option_name%>
+                        </option>
+                        <%}else{%>
+                            <option value="<%=course[j].option_name%>" name="<%=course[j].option_name%>"
+                                id="<%=course[j].option_name%>">
+                                <%=course[j].option_name%>
+                            </option>
+                        <% } %>
+                        <% } %>
+
+                </select></td>
+
+                <td><b>University/Board<b></td>
+                <td><input  type="text" name="uni" value="<%= entry.university %>"/></td>
+
+                <td><b>Passing year<b></td>
+                <td><input  type="text"  name="pass" value="<%= entry.passing_year %>"/></td>
+            
+                <td><b>Percentage<b></td>
+                <td><input  type="text" name="per"  value="<%= entry.percentage %>" /></td>
+               
+                <td><input  type="button" value="+" onclick="priya()" /><b></td>
+            
+            </tr>
+           <%})%>
+    </table>
+    <p id="p1"></p>
+    </fieldset>
+
+
+    <fieldset style="padding: 10; margin-top: 30px; border-radius: 5px; border: 2px solid rgb(22, 98, 111);">
+        <% data.forEach(entry=>{ %>
+        <legend  style="border: 2px solid rgb(22, 98, 111);background-color: rgb(250, 251, 253);font-size: 20px;margin-left: 15px;"><b>Work Experience<b></legend>
+            <table id="experience" >
+                
+                <tr> <td><b>Company Name<b></td> 
+                    <td><input  type="text" name="company" value="<%= entry.company_name %>" /></td>
+                     <td><b>Designation<b></td> <td><input  type="text" name="designation_1" value="<%= entry.designation %>" /></td> <td><b>From date*</b></td> 
+                     <td><input  type="date" name="fdate" value="<%= entry.from_date %>" /></td>
+                      <td><b>To date*</b></td> 
+                      <td><input  type="date" name="tdate" value="<%= entry.to_date %>" /></td>
+                       <td><input  type="button" value="+" onclick="priya1()" /><b></td>
+                </tr>
+       
+        </table>
+        <p id="p2"></p>
+        <% }) %>
+        </fieldset>
+
+            <!-- reference contact -->
+            <fieldset style="padding: 10; margin-top: 30px;border-radius: 5px; border: 2px solid rgb(22, 98, 111);">
+              
+                <legend  style="border: 2px solid rgb(22, 98, 111);background-color: rgb(250, 251, 253);font-size: 20px;margin-left: 15px;"><b>Reference Contact</b></legend>
+                    <table >
+                        
+                        <tr>
+                           <td><b>  Name <b></td>
+                           <td><input  type="text"  name="name" /></td>
+                            
+                           <td><b>Contact number </b></td>
+                           <td><input type="text" name="phone"  /></td>
+                        
+                           <td><b>Relation </b></td>
+                           <td><input type="text" name="relation_1" /></td>
+                        
+                        </tr>
+                       
+                        <tr>
+                            <td><b>  Name <b></td>
+                           <td><input  type="text" name="name1"  /></td>
+                            
+                           <td><b>Contact number </b></td>
+                           <td><input type="text" name="phone1" /></td>
+                        
+                           <td><b>Relation </b></td>
+                           <td><input type="text"  name="relation_2"/></td>
+                        
+                        </tr>
+                       
+                </table>
+               
+                </fieldset>
+        </div>
+                <fieldset style="padding: 10; margin-top: 30px;border-radius: 5px; border: 2px solid rgb(22, 98, 111);">
+                    
+                    <% data.forEach(entry=>{ %>
+                    <legend  style="border: 2px solid rgb(22, 98, 111);background-color: rgb(250, 251, 253);font-size: 20px;margin-left: 15px;"><b>Preferences</b></legend>
+                        <table >
+                            
+                            <tr>
+                                <td><b>Prefered Location<b></td>
+                                <td><select name="location" id="location">
+                                    <%for (var i=0;i<pref_location.length;i++){%>
+                                        <%if(pref_location[i].option_name == entry.pref_location){%>
+                                        <option value="<%=pref_location[i].option_name%>" name="<%=pref_location[i].option_name%>"
+                                            id="<%=pref_location[i].option_name%>" selected>
+                                            <%=pref_location[i].option_name%>
+                                        </option>
+                                        <%}else{%>
+                                            <option value="<%=pref_location[i].option_name%>" name="<%=pref_location[i].option_name%>"
+                                                id="<%=pref_location[i].option_name%>" >
+                                                <%=pref_location[i].option_name%>
+                                            </option>
+                                            <%}%>
+                                        <% } %>
+                                </select></td>
+                                
+                               <td><b>Notice Period *</b></td>
+                               <td><input type="text"  name="notice" value="<%= entry.notice_period %>"/><b></td>
+                            
+                               <td><b>Department<b></td>
+                               
+                            </tr>
+                            <tr>                                             
+                               <td><b>Expected ctc *</b></td>
+                               <td><input type="text" name="expected" value="<%= entry.expected_ctc %>" /></td>
+                            </tr>
+                            <tr>
+                               <td><b>current ctc *</b></td>
+                               <td><input type="text"  name="current" value="<%= entry.current_ctc %>" /></td>
+                            
+                            </tr>
+                           
+                    </table>
+                    <% }) %>
+                    </fieldset>
+
+
+
+
+                    async function getcity(){
+                        console.log("hereeeeeee");
+                        const st = document.getElementById('state');
+                        console.log(st.value);
+                        console.log(state.value);
+                        
+                        const  answer = await fetch(`/getcity?stateid=${state.value}`);
+                        console.log(answer);
+                        const data = await answer.json();
+                        console.log(data);
+                        var selectCity = document.getElementById("city");
+                        selectCity.innerHTML="";
+                        
+                        for(let i=0;i<data.length;i++){
+                            if(data[i].city_name=="<% data[i].city%>"){
+                                selectCity.innerHTML+=`<option value="${data[i].city_name}" selected>${data[i].city_name}</option>`
+                            }else{
+                                selectCity.innerHTML+=`<option value="${data[i].city_name}" >${data[i].city_name}</option>`
+                
+                            }
+                        }
+                }
+
+                //         async function getcity(city){
+                    //         console.log("hereeeeeee");
+                    //         var selectedCityFetch = await fetch(`/getcity?stateid=${city.value}`);
+                    //         const data = await selectedCityFetch.json();
+                    //         console.log(data);
+                    //         var selectCity = document.getElementById("city");
+                    //         if(city.value){
+                    //         selectCity.innerHTML=<option value="${city.value}" selected>${city.value}</option>;
+                    //         for(let i=0;i<data.length;i++){
+                    //         const option = new Option(data[i].city_name,data[i].city_name);
+                    //         selectCity.add(option)
+                    
+                    //         }
+                    // }
+                    // }
