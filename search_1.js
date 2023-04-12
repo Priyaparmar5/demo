@@ -159,6 +159,8 @@ con.connect((err) => {
         });
     }
 });
- app.listen(5000);
-
+ 
+app.listen(5000, () => {
+    console.log('port running at ' + 5000)
+  });
 

@@ -16,7 +16,7 @@
     </style>
 <body>
      
-    <center><input type="button" class="center" style="background-color: rgb(186, 224, 224); padding: 10;" id="b1" onclick="priya(); setTimer();" value="Start Game">
+    <center><input type="button" class="center" style="background-color: rgb(186, 224, 224); padding: 10;" id="start" onclick="tableCreate(); setTimer();" value="Start Game">
 </center>
     
     <div style="text-align: center;margin: 5px;" id="countdown"></div>
@@ -25,10 +25,10 @@
         
     </table>
     <p id="timer" style="text-align: center;">Time :</p>
-    <p style="text-align: center; color: brown; font-size: 20px; font-weight: bold;" id = "count">Score</p>
+    <p style="text-align: center; color: brown; font-size: 20px; font-weight: bold;" id = "count">Score=0</p>
     <script>
-        row = 2;
-        column = 2;
+        // row = 2;
+        // column = 2;
         var count = 0;
 
         function setTimer()
@@ -40,10 +40,13 @@
                 if(counter <= 0)
                 {
                     clearInterval(interval_p);
-                    document.getElementById('timer').innerHTML = "Time Over" + alert("Time Over");
+                    
+                    document.getElementById('timer').innerHTML = "Time Over" ;
+                  //document.getElementById('t1').style.visibility = 'hidden';  
                     document.getElementById('start').style.visibility = "visible";
                     document.getElementById('t1').style.visibility = 'hidden';
-
+                 
+                    //windows.location.reload();
                     setTimeout(reloadPage, 1000);
                     return;
                 }
@@ -58,12 +61,47 @@
             location.reload();
             
         }
+
+        function tableCreate()
+            {
+            document.getElementById("start").style.visibility = 'hidden';
+            document.getElementById("t1").style.visibility = 'visible';
+
+            let tbl1=document.getElementById("t1")
+            var seemar=Math.floor(Math.random() * (255 - 1) + 1);
+            var seemag=Math.floor(Math.random() * (255 - 1) + 1);
+            var seemab=Math.floor(Math.random() * (255 - 1) + 1);
+
+            var randomr = Math.floor(Math.random() * (3 - 1) + 1);
+            var randomc = Math.floor(Math.random() * (3 - 1) + 1);
+
+            let s="";
+            for(var i=1; i<=3; i++)
+            {
+                s = s + "<tr>";
+                for(var j=1; j<=3; j++)
+                {
+                    if(i==randomr && j==randomc)
+                    {
+                    s+= "<td style=background-color:rgba(" + seemar +',' + seemag + ',' +seemab + ',' + 0.8 + "); onclick='priya();'></td>";
+                    }
+                    else if(i<=3 && j<=3)
+                    {
+                    s += "<td style=background-color:rgb(" + seemar +',' + seemag + ',' +seemab + ")></td>";
+                    }
+                }
+            s=s+"</tr>";
+            }
+            tbl1.innerHTML=s;
+            }
+
+
         function priya()
         {
             
             row+=1;
             column+=1;
-
+            
             var r_priya = Math.floor(Math.random() * (255 - 1) + 1);
             var g_priya = Math.floor(Math.random() * (255 - 1) + 1);
             var b_priya = Math.floor(Math.random() * (255 - 1) + 1);
@@ -85,14 +123,14 @@
                     }
                     else if(i <=row && j<= column)
                     {
-                        x += "<td style= background-color:rgb("+ r_priya + "," + g_priya + "," + b_priya+")></td>"
+                        x += "<td style= background-color:rgb("+ r_priya + "," + g_priya + "," + b_priya+")></td>";
                     }
-                    document.getElementById("count").innerHTML = "score:"+count ;
 
                 }
                 x+= "</tr>";
             }
             t1.innerHTML = x;
+            document.getElementById("count").innerHTML = "score:"+count ;
 
                        
         }

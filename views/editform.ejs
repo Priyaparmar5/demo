@@ -15,6 +15,9 @@
             color: darkslateblue;
             border-color: cornflowerblue;
         }
+        .span1{
+            color:red;
+        }
         
         fieldset {
         background-color: aliceblue;
@@ -30,7 +33,7 @@
     </style>
   
     <body bgcolor="#F9EEF7" >
-        <form id="jobform" name="myForm" method="post" action="/update" onsubmit="return ValidateForm();">
+        <form id="jobform" name="myForm" method="post" action="/update" onsubmit="return test();">
            
             <fieldset style="padding: 10; margin-top: 10px; border-radius: 5px; border: 2px solid rgb(22, 98, 111); ">
                 <% data.forEach(entry=>{ %>
@@ -40,7 +43,8 @@
                         <tr>
                             <td><b> First name *<b></td>
                            <td><input  type="text" name="fname" value="<%= entry.fname %>" /></td>
-                            
+                          
+                           
                            <td class="space"><b>Last name *</b></td>
                            <td><input type="text"  name="lname" value="<%= entry.lname %>" /></td>
                         
@@ -164,12 +168,15 @@
 
                                 <td><b>University/Board<b></td>
                                 <td><input  type="text" name="uni" value="<%= entry.university %>"/></td>
+                                <span class="span1" id="uni-error"></span>
 
                                 <td><b>Passing year<b></td>
                                 <td><input  type="text"  name="pass" value="<%= entry.passing_year %>"/></td>
+                                <span class="span1" id="pyear-error"></span>
                             
                                 <td><b>Percentage<b></td>
                                 <td><input  type="text" name="per"  value="<%= entry.percentage %>" /></td>
+                                <span class="span1" id="percent-error"></span>
                                
                                 <td><input  type="button" value="+" onclick="priya()" /><b></td>
                             
@@ -411,6 +418,9 @@
       
     </body>
     <script>
+
+
+
 //         async function getcity(city){
 //         console.log("hereeeeeee");
 //         var selectedCityFetch = await fetch(`/getcity?stateid=${city.value}`);

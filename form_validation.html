@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="assets/css/form_val.css" />
+
+    <title>form</title>
+  </head>
+<style>
+    
+</style>
+  <body>
+    <form method="post" onsubmit="return test()">
+      <div class="section">
+        <div class="row">
+          <div class="container">
+            <div class="heading">
+              <h3>Validation Form</h3>
+            </div>
+            <div class="row1">
+              <div class="col">
+                <label>First Name</label>
+                <input
+                  type="text"
+                  id="fname"
+                  name="fname1"
+                  onchange="fnameValidate()"
+                />
+                <span class="span1" id="fname-error"></span>
+              </div>
+              <div class="col">
+                <label>Last Name</label>
+                <input
+                  type="text"
+                  id="lname"
+                  name="lname"
+                  onchange="lnameValidate()"
+                />
+                <span class="span1" id="lname-error"></span>
+              </div>
+            </div>
+            <label>Age</label>
+            <input type="text" id="age" name="age" onchange="ageValidate()" />
+            <span class="span1" id="age-error"></span>
+
+            <label>Birth of Date</label>
+            <input
+              type="date"
+              max="2023-04-05"
+              id="dob"
+              name="dob"
+              onchange="validateDob()"
+            />
+            <span class="span1" id="dob-error"></span>
+
+            <label>Contact No</label>
+            <input
+              type="text"
+              id="contact"
+              name="contact"
+              onchange="validateContact()"
+            />
+            <span class="span1" id="contact-error"></span>
+
+            <label>Zip code</label>
+            <input type="text" id="zip" name="zip" onchange="validateZip()" />
+            <span class="span1" id="zip-error"></span>
+
+            <label>Hobbies</label>
+            <input
+              type="text"
+              id="hobbies"
+              name="hobbies"
+              onchange="validateHobbies()"
+            />
+            <span class="span1" id="hobbies-error"></span>
+
+            <div id="hobby"></div>
+
+            <div class="row1">
+              <div class="col">
+                <input type="button" value="+" onclick="priya_add()" />
+              </div>
+              <div class="col">
+                <input type="button" value="-" onclick="priya_remove()" />
+              </div>
+            </div>
+            <input type="submit" value="submit" />
+          </div>
+        </div>
+      </div>
+    </form>
+  </body>
+  <script>
+    var count = 1;
+    function priya_add() {
+      var t1 = document.getElementById("hobby");
+      var v2 = document.createElement("div");
+      // if(count <= 3)
+      //     {
+      v2.innerHTML = ` <label>Hobbies</label> <input type="text"  id="hobbies" name="hobbies" onchange="validateHobbies()">
+            <span class="span1" id="hobbies-error"></span>`;
+      t1.append(v2);
+      count++;
+      //  }
+      //     else{
+      //     return false;
+      // }
+    }
+
+    function priya_remove() {
+      var t1 = document.getElementById("hobby");
+      //var v2 = document.createElement('div');
+      t1.removeChild(t1.lastElementChild);
+    }
+
+    function test() {
+      var fname = document.getElementById("fname").value;
+      var lname = document.getElementById("lname").value;
+      var age = document.getElementById("age").value;
+      var dob = document.getElementById("dob").value;
+      var contact = document.getElementById("contact").value;
+      var zip = document.getElementById("zip").value;
+      var hobbies = document.getElementById("hobbies").value;
+      var isvalidate = true;
+
+      if (fname == null || fname == "") {
+        document.getElementById("fname-error").innerHTML =
+          "Please enter firstname";
+        isvalidate = false;
+      } else {
+        document.getElementById("fname-error").innerHTML = "";
+      }
+
+      if (lname == null || lname == "") {
+        document.getElementById("lname-error").innerHTML =
+          "Please enter last Name";
+        isvalidate = false;
+      } else {
+        document.getElementById("lname-error").innerHTML = "";
+      }
+
+      if (age == null || age == "") {
+        document.getElementById("age-error").innerHTML = "Please enter age";
+        isvalidate = false;
+      } else {
+        document.getElementById("age-error").innerHTML = "";
+      }
+
+      if (dob == null || dob == "") {
+        document.getElementById("dob-error").innerHTML =
+          "Please fill this field";
+        isvalidate = false;
+      } else {
+        document.getElementById("dob-error").innerHTML = "";
+      }
+
+      if (contact == null || contact == "") {
+        document.getElementById("contact-error").innerHTML =
+          "Please enter contact";
+        isvalidate = false;
+      } else {
+        document.getElementById("contact-error").innerHTML = "";
+      }
+
+      if (zip == null || zip == "") {
+        document.getElementById("zip-error").innerHTML =
+          "Please enter zip code";
+        isvalidate = false;
+      } else {
+        document.getElementById("zip-error").innerHTML = "";
+      }
+
+      if (hobbies == null || hobbies == "") {
+        document.getElementById("hobbies-error").innerHTML =
+          "Please enter hobbies";
+        isvalidate = false;
+      } else {
+        document.getElementById("hobbies-error").innerHTML = "";
+      }
+
+      return isvalidate;
+    }
+
+    function fnameValidate() {
+      var fname = document.getElementById("fname").value;
+      if (fname == null || fname == "") {
+        document.getElementById("fname-error").innerHTML =
+          "Please enter First Name";
+        return false;
+      } else if (!isNaN(fname)) {
+        document.getElementById("fname-error").innerHTML =
+          "Please enter valid firstname";
+        return false;
+      } else {
+        document.getElementById("fname-error").innerHTML = "";
+      }
+      return true;
+    }
+
+    function lnameValidate() {
+      var lname = document.getElementById("lname").value;
+      if (lname == null || lname == "") {
+        document.getElementById("lname-error").innerHTML =
+          "Please enter last Name";
+        return false;
+      } else if (!isNaN(lname)) {
+        document.getElementById("lname-error").innerHTML =
+          "Please enter valid last name";
+        return false;
+      } else {
+        document.getElementById("lname-error").innerHTML = "";
+      }
+      return true;
+    }
+
+    function ageValidate() {
+      var age = document.getElementById("age").value;
+      age = parseInt(age, 10);
+
+      if (age == null || age == "") {
+        document.getElementById("age-error").innerHTML = "Please enter age";
+        return false;
+      } else if (isNaN(age) || age < 1 || age > 100) {
+        document.getElementById("age-error").innerHTML =
+          "Please enter valid age";
+        return false;
+      } else {
+        document.getElementById("age-error").innerHTML = "";
+      }
+      return true;
+    }
+
+    function validateContact() {
+      var contact = document.getElementById("contact").value;
+      //contact = parseInt(contact, 10);
+
+      if (contact == null || contact == "") {
+        document.getElementById("contact-error").innerHTML = "Please enter age";
+        return false;
+      } else if (isNaN(contact) || contact.length > 10 || contact.length < 10) {
+        document.getElementById("contact-error").innerHTML =
+          "Please enter valid contact";
+        return false;
+      } else {
+        document.getElementById("contact-error").innerHTML = "";
+      }
+      return true;
+    }
+
+    function validateDob() {
+      var dob = document.getElementById("dob").value;
+
+      if (dob == null || dob == "") {
+        document.getElementById("contact-error").innerHTML = "Please enter age";
+        return false;
+      } else if (isNaN(contact) || contact.length > 10) {
+        document.getElementById("contact-error").innerHTML =
+          "Please enter valid contact";
+        return false;
+      } else {
+        document.getElementById("contact-error").innerHTML = "";
+      }
+      return true;
+    }
+
+    function validateZip() {
+      var zip = document.getElementById("zip").value;
+
+      if (zip == null || zip == "") {
+        document.getElementById("zip-error").innerHTML = "Please enter zipcode";
+        return false;
+      } else if (isNaN(zip) || zip.length > 10) {
+        document.getElementById("zip-error").innerHTML =
+          "Please enter valid zipcode";
+        return false;
+      } else {
+        document.getElementById("zip-error").innerHTML = "";
+      }
+      return true;
+    }
+
+    function validateHobbies() {
+      var hobbies = document.getElementById("hobbies").value;
+
+      if (hobbies == null || hobbies == "") {
+        document.getElementById("hobbies-error").innerHTML = "Please enter age";
+        return false;
+      } else if (!isNaN(hobbies)) {
+        document.getElementById("hobbies-error").innerHTML =
+          "Please enter valid hobbies";
+        return false;
+      } else {
+        document.getElementById("hobbies-error").innerHTML = "";
+      }
+      return true;
+    }
+  </script>
+</html>

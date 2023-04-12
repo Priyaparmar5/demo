@@ -6,7 +6,6 @@
         table {
             width: 70%;
         }
-
         b {
             background-color: rgb(230, 173, 173);
             border: 1px solid black;
@@ -62,11 +61,11 @@
             <%})%>
     </table><br>
     </center>
-    <% if(sort=='DESC'){ %>
+    <% if(sort=='DESC'){ 
         sort='ASC'
-    <% }else{ %>
+     }else{ 
         sort='DESC'
-    <% } %>
+ } %>
     <% if (curr_page==1){ %>
         <a href="#">Previous</a>
         <%} else { %>
@@ -88,8 +87,7 @@
                         <a href="#">Next</a>
                     <%}else {%>
                         <a href="/page?num=<%= curr_page+1%>">Next</a>
-            <%}%>
-            
+            <%}%>            
 </body>
 
 </html>

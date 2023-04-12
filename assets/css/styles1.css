@@ -16,7 +16,7 @@ body{
 }
 nav{
    margin-left: auto;
-    display: flex;
+   display: flex;
 }
 a{
     margin: 20px;

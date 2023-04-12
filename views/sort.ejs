@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        table {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-weight: bolder;
+            background-color: bisque;
+            border: 3px solid black;
+            width: 100%;
+        }
+
+        tr,
+        td {
+            border: 1px solid black;
+        }
+
+        a {
+            font-size: x-large;
+
+        }
+        a:active,a:visited,a:link{
+            color: black;
+        }
+        b{
+            background-color: chartreuse;
+            font-size: larger;
+        }
+        .prv{
+            background-color:cadetblue;
+            
+        }
+       
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <center>
+        <%if(order=='desc'){order='asc'}else{order='desc'}%>
+        <table>
+            <tr style="color: darkred; font-size: larger;">
+                <td><a href="http://localhost:9012/page?number=1&curvar=id&order=<%=order%>">Id</a></td>
+                <td><a href="http://localhost:9012/page?number=1&curvar=fname&order=<%=order%>">Fname</a></td>
+                <td><a href="http://localhost:9012/page?number=1&curvar=lname&order=<%=order%>">Lname</a></td>
+                <td><a href="http://localhost:9012/page?number=1&curvar=dob&order=<%=order%>">DOB</a></td>
+                <td><a href="http://localhost:9012/page?number=1&curvar=email&order=<%=order%>">Email</a></td>
+                <td><a href="http://localhost:9012/page?number=1&curvar=contact&order=<%=order%>">Contact No</a></td>
+                <td><a href="http://localhost:9012/page?number=1&curvar=city&order=<%=order%>">City</a></td>
+               
+            </tr>
+            <% for(var i=0;i<data.length;i++){%>
+                <tr>
+                    <td>
+                        <%= data[i].id%>
+                    </td>
+                    <td>
+                        <%= data[i].fname%>
+                    </td>
+                    <td>
+                        <%= data[i].lname%>
+                    </td>
+                    <td>
+                        <%= data[i].dob%>
+                    </td>
+                    <td>
+                        <%= data[i].email%>
+                    </td>
+                    <td>
+                        <%= data[i].contact%>
+                    </td>
+                    <td>
+                        <%= data[i].city%>
+                    </td>
+                </tr>
+                <% } %>
+        </table>
+        <%if(order=='desc'){order='asc'}else{order='desc'}%>       
+                   
+                                <% for(var i=1;i<=total;i++){%>
+                                    <% if(p==i) { %>
+                                        <a href="#"><b><%=i%></b></a>
+                            
+                                        <% } else { %>
+                                            <a href="/page?number=<%=i%>&curvar=<%=cur_var%>&order=<%=order%>"><%=i%></a>
+                                            <% } %>
+                        
+                                   
+
+                                    <% } %><br>
+                                    <% if(p==1) { %>
+                                        <a href="#" class="prv">previous</a>
+                            
+                                        <% } else { %>
+                                            <a href="/page?number=<%=p-1%>&curvar=<%=cur_var%>&order=<%=order%>" class="prv">previous</a>
+                                            <% } %>
+                                    <% if(p==total) { %>
+                                        <a href="#"  class="prv">next</a>
+                                        <% } else { %>
+                                            <a href="/page?number=<%=p+1%>&curvar=<%=cur_var%>&order=<%=order%>"  class="prv">next</a>
+                                            <% }%>
+
+    </center>
+
+   
+</body>
+
+</html>

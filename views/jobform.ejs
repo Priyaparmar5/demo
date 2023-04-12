@@ -68,9 +68,10 @@
         function priya(){
             var table2= document.getElementById('education_details');
             var v2 = document.createElement('tr');
+            v2.id = `<tr${count}>`;
             if(clk <= 3)
                 {
-                    v2.innerHTML=`<tr> <td><b>Course Name<b></td> <td><b><select name="course" id="course"> <% for(let i=0; i<data['course'].length; i++){ %> <option value="<%=data['course'][i]['option_name']%>"> <%=data['course'][i]['option_name']%> </option> <% } %> </select><b></td> <td><b>University/Board<b></td> <td><input  type="text" name="uni" /></td> <td><b>Passing year<b></td> <td><input  type="text"  name="pass"/></td> <td><b>Percentage<b></td> <td><input  type="text" name="per"  /></td> </tr><br><br>`;
+                    v2.innerHTML=`<tr> <td><b>Course Name<b></td> <td><b><select name="course" id="course"> <% for(let i=0; i<data['course'].length; i++){ %> <option value="<%=data['course'][i]['option_name']%>"> <%=data['course'][i]['option_name']%> </option> <% } %> </select><b></td> <td><b>University/Board<b></td> <td><input  type="text" name="uni" /></td> <td><b>Passing year<b></td> <td><input  type="text"  name="pass"/></td> <td><b>Percentage<b></td> <td><input  type="text" name="per"  /></td> <td><input  type="button" value="-" onclick="priya_remove(<tr${count}>)" /><b></td></tr><br><br>`;
                     table2.append(v2);
                     clk++;
                     }
@@ -78,6 +79,13 @@
                     return false;
                 }
             }
+
+        function priya_remove(id)
+        {
+        console.log(id);
+        document.getElementById(id).remove;
+        }
+
         function priya1(){
             var table3= document.getElementById('experience');
             var v3 = document.createElement('tr');
@@ -184,7 +192,6 @@
 
                         <tr>
     
-                            
                            <td><b>Relationship Status<b></td>
                             <td><select name="relationship" id="relationship" >
                                 

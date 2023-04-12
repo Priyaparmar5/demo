@@ -1,0 +1,29 @@
+<% if(sort=='DESC'){ %>
+    sort='ASC'
+<% }else{ %>
+    sort='DESC'
+<% } %>
+<% if (curr_page==1){ %>
+    <a href="#">Previous</a>
+    <%} else { %>
+        <a href="/page?num=<%= curr_page-1%>">Previous</a>
+        <%}%>
+
+            <% for(i=1; i<=count; i++){ %>
+
+                <% if (curr_page==i){%>
+                    <a href="/page?num=<%=i%>&col_nm=<%=col_n& %>&sort=<%=order_type%>"><b><%= i%></b></a>
+                <% } else {%>
+
+                    <a href="/page?num=<%= i%>&col_nm=<%=col_n%>&sort=<%=order_type%>">
+                    <%= i%>
+                    </a><a href="/page?num=1&col_nm=lname"></a>
+                   <%}%>
+                <%}%>
+                <% if(curr_page==count){ %>
+                    <a href="#">Next</a>
+                <%}else {%>
+                    <a href="/page?num=<%= curr_page+1%>">Next</a>
+                <%}%>
+        
+             

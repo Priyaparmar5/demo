@@ -189,25 +189,27 @@ console.log(sql);
 //   if (err) throw err;
 //   })
 //   }
-var language1= '';
-if(typeof(req.body.languageknown) == 'object'){
-  language1 = `insert into languages(candidate_id, language_read, language_write,language_speak,language_name) values`;
-for (let i = 0; i < req.body.languageknown.length; i++) {
-  language1 += `('${appid}', '${read.includes(req.body.languageknown[i]) ? 'yes' : 'no'}', '${write.includes(req.body.languageknown[i]) ? 'yes' : 'no'}', '${speak.includes(req.body.languageknown[i]) ? 'yes' : 'no'}','${req.body.languageknown[i]}'),`;
-}
-language1 = language1.slice(0, language1.length - 1);
-} 
-else {
-language1 = `insert into languages(candidate_id, language_read, language_write,language_speak,language_name) value('${appid}, '${read == req.body.languageknown ? 'yes' : 'no'}', '${write == req.body.languageknown ? 'yes' : 'no'}', '${speak == req.body.languageknown ? 'yes' : 'no'} ','${req.body.languageknown}')`;
-}
+// -----------------------
+// var language1= '';
+// if(typeof(req.body.languageknown) == 'object'){
+//   language1 = `insert into languages(candidate_id, language_read, language_write,language_speak,language_name) values`;
+// for (let i = 0; i < req.body.languageknown.length; i++) {
+//   language1 += `('${appid}', '${read.includes(req.body.languageknown[i]) ? 'yes' : 'no'}', '${write.includes(req.body.languageknown[i]) ? 'yes' : 'no'}', '${speak.includes(req.body.languageknown[i]) ? 'yes' : 'no'}','${req.body.languageknown[i]}'),`;
+// }
+// language1 = language1.slice(0, language1.length - 1);
+// } 
+// else {
+// language1 = `insert into languages(candidate_id, language_read, language_write,language_speak,language_name) value('${appid}, '${read == req.body.languageknown ? 'yes' : 'no'}', '${write == req.body.languageknown ? 'yes' : 'no'}', '${speak == req.body.languageknown ? 'yes' : 'no'} ','${req.body.languageknown}')`;
+// }
 
-connection.query(language1, function (err, result6) {
-if (err) throw err;
-console.log(language1)
-//response.send("record add successfully");
-console.log("record add successfully")
+// connection.query(language1, function (err, result6) {
+// if (err) throw err;
+// console.log(language1)
+// //response.send("record add successfully");
+// console.log("record add successfully")
 
-});
+// });
+// -----------------------------------------
 
   //   var sql10 = `insert into languages(candidate_id, language_read, language_write,language_speak,language_name) values ('${appid}','${languageknown[i]}','${read.includes(languageknown[i])?'yes':'no'}','${write.includes(languageknown[i])?'yes':'no'}','${speak.includes(languageknown[i])?'yes':'no'}')`;
     
@@ -498,13 +500,13 @@ console.log(dob1);
 console.log(gen);
 
 //-------------------basic detail--------------------------
-    // connection.query(`update basic_detail set fname="${f_name} ",lname="${l_name}",designation="${designation1}", contact="${contact1}", address=" ${add1}", address2="${add2}",city= "${city1}", state="${state1}", email="${mail}",gender="${gen}",dob="${dob1}" , zipcode="${zipcode}", relationship_status="${relation}" where candidate_id="${cid}" `, (error, res) => {
-    //   let appid = res.insertId;
-    //   console.log(appid);
-    //   if (error) throw error;
-    //   console.log("data updated successfully")
+    connection.query(`update basic_detail set fname="${f_name} ",lname="${l_name}",designation="${designation1}", contact="${contact1}", address=" ${add1}", address2="${add2}",city= "${city1}", state="${state1}", email="${mail}",gender="${gen}",dob="${dob1}" , zipcode="${zipcode}", relationship_status="${relation}" where candidate_id="${cid}" `, (error, res) => {
+      let appid = res.insertId;
+      console.log(appid);
+      if (error) throw error;
+      console.log("data updated successfully")
 
-    // });
+    });
 
 // //---------------------education detail------------------------
 
@@ -517,33 +519,33 @@ console.log(gen);
   }
 
 // //-------------------work experience-------------------------
-  // for(var i=0;i<company.length;i++){
-  //   connection.query(`update work_experience set company_name="${company[i]} ",designation="${desig[i]}",from_date="${f_date[i]}" , end_date="${t_date[i]}" where id_experience="${expid[i]}" `, (error, res) => {
-  //     if (error) throw error;
-  //     console.log("data updated successfully")
+  for(var i=0;i<company.length;i++){
+    connection.query(`update work_experience set company_name="${company[i]} ",designation="${desig[i]}",from_date="${f_date[i]}" , end_date="${t_date[i]}" where id_experience="${expid[i]}" `, (error, res) => {
+      if (error) throw error;
+      console.log("data updated successfully")
    
-  //   });
-  // }
+    });
+  }
   
 // ///---------------------preferences-------------------------//
 
-//     connection.query(`update preferences set expected_ctc="${exp}",current_ctc="${cur}",notice_period="${notice1}" , preferred_location="${prefloc}", department="${depart}" where candidate_id="${cid}" `, (error, res) => {
-//       if (error) throw error;
-//       console.log("data updated successfully")
+    connection.query(`update preferences set expected_ctc="${exp}",current_ctc="${cur}",notice_period="${notice1}" , preferred_location="${prefloc}", department="${depart}" where candidate_id="${cid}" `, (error, res) => {
+      if (error) throw error;
+      console.log("data updated successfully")
    
-//     });
+    });
 
 // ///---------------------references-----------------------//
 
-//     console.log('')
-//     var refname = req.body.name;
-//     for(let i=0; i<refname.length; i++){
-//     connection.query(`update reference set references_name="${nm[i]} ",references_contact="${phn[i]}",references_relation="${rel[i]}" where reference_id="${refid[i]}" `, (error, res) => {
-//       if (error) throw error;
-//       console.log("data updated successfully")
+    console.log('')
+    var refname = req.body.name;
+    for(let i=0; i<refname.length; i++){
+    connection.query(`update reference set references_name="${nm[i]} ",references_contact="${phn[i]}",references_relation="${rel[i]}" where reference_id="${refid[i]}" `, (error, res) => {
+      if (error) throw error;
+      console.log("data updated successfully")
    
-//     });
-//   }
+    });
+  }
 // console.log(sql);
 
 //   var deletecheck =await query(`delete from languages where candidate_id='${req.body.cid}'`);
@@ -556,24 +558,24 @@ console.log(gen);
 //   console.log("write"+write);
 //   console.log("speak"+speak);
 
-//  if(typeof(req.body.lang) == 'object'){
-//     language = `insert into languages(candidate_id, language_read, language_write,language_speak,language_name) values`;
-//   for (let i = 0; i < req.body.lang.length; i++) {
-//     language += `('${req.body.cid}', '${read.includes(req.body.lang[i]) ? 'yes' : 'no'}', '${write.includes(req.body.lang[i]) ? 'yes' : 'no'}', '${speak.includes(req.body.lang[i]) ? 'yes' : 'no'}','${req.body.lang[i]}'),`;
-//   }
-//   language = language.slice(0, language.length - 1);
-//   } 
-//   else {
-//   language = `insert into languages(candidate_id, language_read, language_write,language_speak,language_name) value('${cid}, '${read == req.body.lang ? 'yes' : 'no'}', '${write == req.body.lang ? 'yes' : 'no'}', '${speak == req.body.lang ? 'yes' : 'no'} ','${req.body.lang}')`;
-//   }
+ if(typeof(req.body.lang) == 'object'){
+    language = `insert into languages(candidate_id, language_read, language_write,language_speak,language_name) values`;
+  for (let i = 0; i < req.body.lang.length; i++) {
+    language += `('${req.body.cid}', '${read.includes(req.body.lang[i]) ? 'yes' : 'no'}', '${write.includes(req.body.lang[i]) ? 'yes' : 'no'}', '${speak.includes(req.body.lang[i]) ? 'yes' : 'no'}','${req.body.lang[i]}'),`;
+  }
+  language = language.slice(0, language.length - 1);
+  } 
+  else {
+  language = `insert into languages(candidate_id, language_read, language_write,language_speak,language_name) value('${cid}, '${read == req.body.lang ? 'yes' : 'no'}', '${write == req.body.lang ? 'yes' : 'no'}', '${speak == req.body.lang ? 'yes' : 'no'} ','${req.body.lang}')`;
+  }
   
-//   connection.query(language, function (err, result6) {
-//   if (err) throw err;
-//   console.log(language)
+  connection.query(language, function (err, result6) {
+  if (err) throw err;
+  console.log(language)
  
-//   console.log("record add successfully")
+  console.log("record add successfully")
   
-//   });
+  });
 
 //   //-
 //   var deletecheck1 =await query(`delete from technologies where candidate_id='${req.body.cid}'`);
@@ -582,12 +584,12 @@ console.log(gen);
 //   let technologies = req.body.tech;
 
 // //technology
-// for (var i = 0; i < technologies.length; i++) {
-//   var sql = connection.query(`INSERT INTO technologies (candidate_id,tech_name, tech_expertise)values ('${req.body.cid}','${technologies[i]}', '${req.body[technologies[i]]}');`, function (err, result) {
-//       if (err) throw err;
-//   });
-// }
-// console.log("update successfully");
+for (var i = 0; i < technologies.length; i++) {
+  var sql = connection.query(`INSERT INTO technologies (candidate_id,tech_name, tech_expertise)values ('${req.body.cid}','${technologies[i]}', '${req.body[technologies[i]]}');`, function (err, result) {
+      if (err) throw err;
+  });
+}
+console.log("update successfully");
 });
 
 
@@ -644,9 +646,6 @@ connection.query(`select *from state`, (error, res) => {
     language = result;
     console.log(language);
     })
-
-
-
 
     //------------------
     var editid= req.query.id;

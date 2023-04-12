@@ -26,10 +26,10 @@ app.get('/page', (req, res) => {
   curr_page = parseInt(req.query.num);
   limit = 25;
   offset = (page - 1) * limit;
- // let curr_order = req.query.curorder;
+  let curr_order = req.query.curorder;
   let sort = req.query.order_type||'asc';
 
-  if(req.query.curorder){
+  if(curr_order){
     col=req.query.col_nm;
     sort = req.query.order_type;
   }
@@ -37,7 +37,7 @@ app.get('/page', (req, res) => {
   {
    col='id';
    curr_page=1;
-  sort = 'asc';
+   sort = 'asc';
   }
 
   // if (req.query.curorder) {
@@ -65,8 +65,9 @@ app.get('/page', (req, res) => {
 //`select * from student_exp order by ${sort} ${col} limit ${offset},${limit}`, (error, result)
   connection.query(`select * from student_exp order by ${col} ${sort}  limit ${offset},${limit}`,(error, result) => {
     if (error) { throw error; }
-    data_1 = result;
-    res.render('pagesort', { data_1: data, count: count , curr_page, col_n : col, sort});
+    
+    data[1] = result;
+    res.render('pagesort', { data: data, count: count , curr_page, col_n : col, sort});
     console.log("record displayed successfully")
   });
 

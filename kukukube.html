@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<style>
+#tbl1
+{
+border-collapse:collapse;
+height: 300px;
+width: 300px;
+border-width: 2px;
+border-color: white;
+margin-top: 2%;
+}
+tr,td
+{
+border-width: 2px;
+}
+#start
+{
+height: 50px;
+font-size: 30px;
+background-color: darkcyan;
+border-style: none;
+border-radius: 5px;
+color: burlywood;
+}
+</style>
+</head>
+<body align="center">
+<input type="button" id="start" onclick="tableCreate(); setTimer()" value="Start The Game"></body>
+
+<table border="1" id="tbl1" align="center">
+</table>
+<p id="timer" style="font-size: 30px; font-weight: 900;"></p>
+<p style="text-align: center; color: brown; font-size: 20px; font-weight: bold;" id = "count">Score=0</p>
+<script>
+    var count =0;
+    function setTimer()
+    {
+        var counterPriya = 5;
+        var intervalPriya = setInterval(function()
+    {
+        counterPriya--;
+    if(counterPriya <= 0)
+    {
+        clearInterval(intervalPriya);
+        document.getElementById('timer').innerHTML = "Time Over";
+        document.getElementById("start").style.visibility = 'visible';
+        document.getElementById("tbl1").style.visibility = 'hidden';
+        document.getElementById("count").innerHTML = "Your total score is :"+count ;
+
+        setTimeout(reloadPage, 5000);
+    }
+        else
+        {
+            document.getElementById('timer').innerHTML = counterPriya;
+
+        }
+    }, 1000);
+    }
+    function reloadPage()
+    {
+        location.reload();
+    }
+function tableCreate()
+{
+    document.getElementById("start").style.visibility = 'hidden';
+    document.getElementById("tbl1").style.visibility = 'visible';
+
+    let tbl1=document.getElementById("tbl1")
+    var priyar=Math.floor(Math.random() * (255 - 1) + 1);
+    var priyag=Math.floor(Math.random() * (255 - 1) + 1);
+    var priyab=Math.floor(Math.random() * (255 - 1) + 1);
+
+    var randomr = Math.floor(Math.random() * (3 - 1) + 1);
+    var randomc = Math.floor(Math.random() * (3 - 1) + 1);
+
+
+    let s="";
+    for(var i=1; i<=3; i++)
+    {
+        s = s + "<tr>";
+    for(var j=1; j<=3; j++)
+    {
+        if(i==randomr && j==randomc)
+        {
+            s+= "<td style=background-color:rgba(" + priyar +',' + priyag + ',' +priyab + ',' + 0.8 + "); onclick='priya();'></td>";
+        }
+        else if(i<=3 && j<=3)
+        {
+            s += "<td style=background-color:rgb(" + priyar +',' + priyag + ',' +priyab + ")></td>";
+        }
+    }
+    s=s+"</tr>";
+    }
+    tbl1.innerHTML=s;
+}
+row=3;
+Column=3;
+
+function priya()
+{
+
+    row+=1;
+    Column+=1;
+
+    var priyar=Math.floor(Math.random() * (255 - 1) + 1);
+    var priyag=Math.floor(Math.random() * (255 - 1) + 1);
+    var priyab=Math.floor(Math.random() * (255 - 1) + 1);
+
+    var randomr = Math.floor(Math.random() * (row - 1) + 1);
+    var randomc = Math.floor(Math.random() * (Column - 1) + 1);
+
+    console.log(priyar,priyag, priyab);
+    x = "";
+    for(var i=1; i<=row; i++)
+    {
+    x+= "<tr>";
+    for(var j=1; j<=Column; j++)
+    {
+    if(i==randomr && j==randomc)
+    {
+     x+= "<td style=background-color:rgba(" + priyar +',' + priyag + ',' +priyab + ',' + 0.8 + "); onclick='priya();'></td>";
+     count++;
+    }
+    else if(i<=row && j<=Column)
+    {
+     x += "<td style=background-color:rgb(" + priyar +',' + priyag + ',' +priyab + ")></td>";
+    }
+    }
+        x+= "</tr>";
+    }
+    tbl1.innerHTML = x;
+    document.getElementById("count").innerHTML = "score:"+count ;
+}
+</script>
+</body>
+</html>

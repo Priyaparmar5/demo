@@ -17,7 +17,7 @@ connection.connect((err) => {
   console.log("connected");
 })
 
-app.get('/:page', (req, res) => {
+app.get('/page', (req, res) => {
   var data = [];
   var count;
   var curr_page;

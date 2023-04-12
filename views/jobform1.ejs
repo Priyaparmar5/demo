@@ -15,7 +15,9 @@
             color: darkslateblue;
             border-color: cornflowerblue;
         }
-        
+        .span1{
+            color:red;
+        }
         fieldset {
         background-color: aliceblue;
         display: block;
@@ -28,136 +30,48 @@
         border: 2px groove (internal value);
         }
     </style>
-    <script>
-        
-        var s="";
-        var clk =1;
-        var c1=1;
-        var c=1;
-        var k=1;
-        var p="";
-        var q="";
-        var r="";
-
-        function priya4(){
-            var table= document.getElementById('languages');
-            var v1 = document.createElement('tr');
-            if(k == 1)
-                {
-                    v1.innerHTML='<tr> <td><select name="language" id="language"> <option value="php">php</option> <option value="Python">Python</option> <option value="Android">Android</option> <option value="ios">ios</option> </select></td> <td><input type="radio" id="Beginer" name="tech" value="Beginer">Beginer <input type="radio" id="Beginer" name="tech" value="Beginer">Mediator <input type="radio" id="Expert" name="tech" value="Expert">Expert<b></td> </tr><br><br>';
-                    table.append(v1);
-                    k++;
-                   // return false;
-                }
-                else if(k == 2)
-                {
-                    v1.innerHTML='<tr> <td><select name="language" id="language"> <option value="php">php</option> <option value="Python">Python</option> <option value="Android">Android</option> <option value="ios">ios</option> </select></td> <td><input type="radio" id="Beginer" name="tech1" value="Beginer">Beginer <input type="radio" id="Beginer" name="tech1" value="Beginer">Mediator <input type="radio" id="Expert" name="tech1" value="Expert">Expert<b></td> </tr><br><br>';
-                    table.append(v1);
-                    k++;
-                   // return false;
-                }
-                else if(k == 3)
-                {
-                    v1.innerHTML='<tr> <td><select name="language" id="language"> <option value="php">php</option> <option value="Python">Python</option> <option value="Android">Android</option> <option value="ios">ios</option> </select></td> <td><input type="radio" id="Beginer" name="tech2" value="Beginer">Beginer <input type="radio" id="Beginer" name="tech2" value="Beginer">Mediator <input type="radio" id="Expert" name="tech2" value="Expert">Expert<b></td> </tr><br><br>';
-                    table.append(v1);
-                    k++;
-                   // return false;
-                }
-                
-            }
-        function priya(){
-            var table2= document.getElementById('education_details');
-            var v2 = document.createElement('tr');
-            if(clk <= 3)
-                {
-                    v2.innerHTML=`<tr> <td><b>Course Name<b></td> <td><b><select name="course" id="course"> <% for(let i=0; i<data['course'].length; i++){ %> <option value="<%=data['course'][i]['option_name']%>"> <%=data['course'][i]['option_name']%> </option> <% } %> </select><b></td> <td><b>University/Board<b></td> <td><input  type="text" name="uni" /></td> <td><b>Passing year<b></td> <td><input  type="text"  name="pass"/></td> <td><b>Percentage<b></td> <td><input  type="text" name="per"  /></td> </tr><br><br>`;
-                    table2.append(v2);
-                    clk++;
-                    }
-                    else{
-                    return false;
-                }
-            }
-        function priya1(){
-            var table3= document.getElementById('experience');
-            var v3 = document.createElement('tr');
-        if(c <= 3)
-            {
-                v3.innerHTML=' <tr> <td><b>Company Name<b></td> <td><input  type="text" name="company" /></td> <td><b>Designation<b></td> <td><input  type="text" name="designation_1"  /></td> <td><b>From date*</b></td> <td><input  type="date" name="fdate" /></td> <td><b>To date*</b></td> <td><input  type="date" name="tdate" /></td> <td><input  type="button" value="+" onclick="priya1()" /><b></td></tr><br><br>';
-                table3.append(v3);
-                c++;
-               
-            }
-            else{
-                return false;
-            
-            }
-        }
-        function priya2(){
-            var table4= document.getElementById('lang');
-            var v4 = document.createElement('tr');
-            if(c1 <= 3)
-                {
-                    v4.innerHTML='<tr> <td><b><select name="language" id="language"> <option value="hindi">Hindi</option> <option value="English">English</option> <option value="Gujarati">Gujarati</option> </select><b></td> <td><b> <input type="checkbox" id="read" name="read" value="read">Read <input type="checkbox" id="write" name="write" value="Write">Write <input type="checkbox" id="speak" name="Speak" value="Speak">Speak<b></td>  </tr><br><br>';
-                    table4.append(v4);
-                    c1++;
-                }
-                else{
-                    return false;
-            
-                }
-            }
-        //
-
-        async function getcity(state){
-             console.log(state);
-             console.log(state.value);
-             const ans = await fetch(`http://localhost:5002/getcity?stateid=${state.value}`);
-             const data = await ans.json();
-             var selectcity = document.getElementById('selectcity');
-             selectcity.innerHTML='';
-             for(let i=0;i<data.length; i++){
-                const option = new Option(data[i].city_name,data[i].city_name);
-                selectcity.add(option);
-             }
-
-        }
-        //
- 
-    </script>
+   
     <body bgcolor="#F9EEF7" >
-        <form id="jobform" name="myForm" method="post" action="/job" onsubmit="return ValidateForm();">
+        <form id="jobform" name="myForm" method="post"   action="/job" >
         
             <fieldset style="padding: 10; margin-top: 10px; border-radius: 5px; border: 2px solid rgb(22, 98, 111); ">
                 <legend style="border: 2px solid rgb(22, 98, 111); color: rgb(7, 74, 52); background-color: rgb(250, 251, 253);font-size: 20px;margin-left: 15px;"><b>Basic Details</b></legend>
                     <table>
                         <tr>
                             <td><b> First name *<b></td>
-                           <td><input  type="text" name="fname"  /></td>
+                           <td><input  type="text" name="first_name" id="first_name"  onchange="return fnameValidate()" /><span class="span1" id="fname-error"></span></td>
+                          
                             
-                           <td class="space"><b>Last name *</b></td>
-                           <td><input type="text"  name="lname"/></td>
-                        
+                           <td><b>Last name *</b></td>
+                           <td><input type="text"  name="lname" id="last_name"/><span class="span1" id="lname-error"></span></td>
+                          
                         </tr>
+                       
                         <tr>
                             <td><b> Designation *<b></td>
-                           <td><input  type="text" name="designation" /></td>
+                           <td><input  type="text" name="designation" id="designation" />
+                            <span class="span1" id="designation-error"></span></td>
                             
                            <td><b>Address1*</b></td>
-                           <td><input  type="text"  name="address"/></td>
+                           <td><input  type="text" id="add1"  name="add1"/>
+                            <span class="span1" id="add1-error"></span></td>
                         
                         </tr>
                         <tr>
                             <td><b> Email *<b></td>
-                           <td><input  type="text" name="email" /></td>
+                           <td><input  type="text" name="email" id="email" />
+                            <span class="span1" id="email-error"></span></td>
                             
                            <td><b>Address2*</b></td>
-                           <td><input  type="text" name="add2" /></td>
+                           <td><input  type="text" name="add2" id="add2" />
+                            <span class="span1" id="add2-error"></span></td>
                         
                         </tr>
                         <tr>
                             <td><b> Phone Number *<b></td>
-                           <td><input  type="text" name="contact"  /></td>
+                           <td><input  type="text" name="contact" id="contact" onchange="validateContact()"/>
+                           <span class="span1" id="contact-error"></span></td>
+
                            <td><b>State<b></td>
                             <td><select name="state" id="state" onchange="getcity(this)"> 
                                 <% for(let i=0; i<data['state'].length; i++){ %>
@@ -197,12 +111,12 @@
                             </select></td>
 
                             <td><b>Zip Code<b></td>
-                                <td><input  type="text" name="zip" /></td>
+                                <td><input  type="text" id="zip" name="zip" onclick="validateZip()"/><span class="span1" id="zip-error"></span></td>
                             
                         </tr>
                         <tr>
                             <td><b>Date Of Birth*</b></td>
-                            <td><input  type="date" name="dob" /></td>
+                            <td><input  type="date" name="dob" id="dob" /><span class="span1" id="date-error"></span></td>
                         </tr>
                 </table>
                 </fieldset>
@@ -223,13 +137,13 @@
                                 </select><b></td>
 
                                 <td><b>University/Board<b></td>
-                                <td><input  type="text" name="uni" /></td>
+                                <td><input  type="text" name="uni" id="uni" /></td>
 
                                 <td><b>Passing year<b></td>
-                                <td><input  type="text"  name="pass"/></td>
+                                <td><input  type="text"  name="pass" id="pass"/></td>
                             
                                 <td><b>Percentage<b></td>
-                                <td><input  type="text" name="per"  /></td>
+                                <td><input  type="text" name="per" id="per" /></td>
                                
                                 <td><input  type="button" value="+" onclick="priya()" /><b></td>
                             
@@ -287,7 +201,7 @@
                                                
                                                
                                         </td>
-                                        <td><b></b></n><input type="radio" id="Beginer" name="<%=data['technology'][i]['option_name']%>" value="beginer">  Beginer                   
+                                        <td></n><input type="radio" id="Beginer" name="<%=data['technology'][i]['option_name']%>" value="beginer">  Beginer                   
                                         <input type="radio" id="mediator" name="<%=data['technology'][i]['option_name']%>" value="mediator">mediator
                                         <input type="radio" id="Expert" name="<%=data['technology'][i]['option_name']%>" value="expert">Expert<b></td>
                                           
@@ -371,9 +285,281 @@
                                     </table>
                                     </fieldset>
 
-       <input type="submit" style="margin-left: 600;margin-right: 300;margin-top: 10px;background-color: aquamarine;padding: 10;font-size: 20;border-radius: 5px;">
+       <input type="submit" onclick="return test()" style="margin-left: 600;margin-right: 300;margin-top: 10px;background-color: aquamarine;padding: 10;font-size: 20;border-radius: 5px;">
 
        <!-- <input type="" style="margin-left: 600;margin-right: 300;margin-top: 10px;background-color: aquamarine;padding: 10;font-size: 20;border-radius: 5px;"> -->
 
     </body>
+
+    <script>
+    function test(){
+       console.log("calling..")
+       var first_name = document.getElementById('first_name').value;
+       var last_name = document.getElementById('last_name').value;
+       var designation = document.getElementById('designation').value;
+       var add1 = document.getElementById('add1').value;
+       var add2 = document.getElementById('add2').value;
+       var email = document.getElementById('email').value;
+       var contact = document.getElementById('contact').value;
+       var zip = document.getElementById('zip').value;
+
+       console.log(first_name,"fnameeeee");
+       console.log(last_name,"Lnameeeee");
+    
+       var isvalidate = true;
+
+       if(first_name == null || first_name == "")
+       {
+        
+           document.getElementById('fname-error').innerHTML="*Please enter firstname";
+           isvalidate = false;
+       }
+       else if(!isNaN(first_name))
+       {
+            document.getElementById('fname-error').innerHTML="Please enter valid first name";
+            isvalidate = false;
+       }
+       else{
+           document.getElementById('fname-error').innerHTML="";
+       }
+
+       if(contact == null || contact == "")
+       {
+        
+           document.getElementById('contact-error').innerHTML="*Please enter contact";
+           isvalidate = false;
+       }
+       else if(isNaN(contact))
+       {
+            document.getElementById('contact-error').innerHTML="Please enter valid contact";
+            isvalidate = false;
+       }
+       else{
+           document.getElementById('contact-error').innerHTML="";
+       }
+
+       if(last_name == null || last_name == "")
+       {
+           console.log("lassssst");
+           document.getElementById('lname-error').innerHTML="*Please enter lastname";
+           isvalidate = false;
+       }
+       else if(!isNaN(last_name))
+       {
+        document.getElementById('lname-error').innerHTML="Please enter valid last name";
+        isvalidate = false;   
+       }
+       else{
+           document.getElementById('lname-error').innerHTML="";
+       }
+
+       if(designation == null || designation == "")
+       {
+           document.getElementById('designation-error').innerHTML="*Please enter designation";
+           isvalidate = false;
+       }
+       else if(!isNaN(designation))
+       {
+        document.getElementById('designation-error').innerHTML="Please enter valid designation";
+        isvalidate = false;
+       }
+       else{
+           document.getElementById('designation-error').innerHTML="";
+       } 
+
+       if(add1 == null || add1 == "")
+       {
+           document.getElementById('add1-error').innerHTML="*Please enter address";
+           isvalidate = false;
+       }
+       else{
+           document.getElementById('add1-error').innerHTML="";
+       }
+
+       if(zip == null || zip == "")
+       {
+           document.getElementById('zip-error').innerHTML="*Please enter zipcode";
+           isvalidate = false;
+       }
+       else{
+           document.getElementById('zip-error').innerHTML="";
+       }
+
+       if(add2 == null || add2 == "")
+       {
+           document.getElementById('add2-error').innerHTML="*Please enter address2";
+           isvalidate = false;
+       }
+       else{
+           document.getElementById('add2-error').innerHTML="";
+       }
+
+       if(email == null || email == "")
+       {
+           document.getElementById('email-error').innerHTML="*Please enter email";
+           isvalidate = false;
+       }
+       else{
+           document.getElementById('email-error').innerHTML="";
+       }
+
+return isvalidate;
+}
+
+
+
+
+       var s="";
+       var clk =1;
+       var c1=1;
+       var c=1;
+       var k=1;
+       var p="";
+       var q="";
+       var r="";
+
+       function priya4(){
+           var table= document.getElementById('languages');
+           var v1 = document.createElement('tr');
+           if(k == 1)
+               {
+                   v1.innerHTML='<tr> <td><select name="language" id="language"> <option value="php">php</option> <option value="Python">Python</option> <option value="Android">Android</option> <option value="ios">ios</option> </select></td> <td><input type="radio" id="Beginer" name="tech" value="Beginer">Beginer <input type="radio" id="Beginer" name="tech" value="Beginer">Mediator <input type="radio" id="Expert" name="tech" value="Expert">Expert<b></td> </tr><br><br>';
+                   table.append(v1);
+                   k++;
+                  // return false;
+               }
+               else if(k == 2)
+               {
+                   v1.innerHTML='<tr> <td><select name="language" id="language"> <option value="php">php</option> <option value="Python">Python</option> <option value="Android">Android</option> <option value="ios">ios</option> </select></td> <td><input type="radio" id="Beginer" name="tech1" value="Beginer">Beginer <input type="radio" id="Beginer" name="tech1" value="Beginer">Mediator <input type="radio" id="Expert" name="tech1" value="Expert">Expert<b></td> </tr><br><br>';
+                   table.append(v1);
+                   k++;
+                  // return false;
+               }
+               else if(k == 3)
+               {
+                   v1.innerHTML='<tr> <td><select name="language" id="language"> <option value="php">php</option> <option value="Python">Python</option> <option value="Android">Android</option> <option value="ios">ios</option> </select></td> <td><input type="radio" id="Beginer" name="tech2" value="Beginer">Beginer <input type="radio" id="Beginer" name="tech2" value="Beginer">Mediator <input type="radio" id="Expert" name="tech2" value="Expert">Expert<b></td> </tr><br><br>';
+                   table.append(v1);
+                   k++;
+                  // return false;
+               }
+               
+           }
+       function priya(){
+           var table2= document.getElementById('education_details');
+           var v2 = document.createElement('tr');
+           v2.id = `tr${clk}`;
+                   v2.innerHTML=`<tr> <td><b>Course Name<b></td> <td><b><select name="course" id="course"> <% for(let i=0; i<data['course'].length; i++){ %> <option value="<%=data['course'][i]['option_name']%>"> <%=data['course'][i]['option_name']%> </option> <% } %> </select><b></td> <td><b>University/Board<b></td> <td><input  type="text" name="uni" /></td> <td><b>Passing year<b></td> <td><input  type="text"  name="pass"/></td> <td><b>Percentage<b></td> <td><input  type="text" name="per"  /></td><td><input  type="button" value="-" onclick="priya_remove('tr${clk}')" /><b></td> </tr><br><br>`;
+                   table2.append(v2);
+                   clk++;
+        }
+               
+        function priya_remove(id)
+        {
+        console.log(id,"idddd");
+        document.getElementById(id).remove();
+        }
+
+
+       function priya1(){
+           var table3= document.getElementById('experience');
+           var v3 = document.createElement('tr');
+       if(c <= 3)
+           {
+               v3.innerHTML=' <tr> <td><b>Company Name<b></td> <td><input  type="text" name="company" /></td> <td><b>Designation<b></td> <td><input  type="text" name="designation_1"  /></td> <td><b>From date*</b></td> <td><input  type="date" name="fdate" /></td> <td><b>To date*</b></td> <td><input  type="date" name="tdate" /></td> <td><input  type="button" value="+" onclick="priya1()" /><b></td></tr><br><br>';
+               table3.append(v3);
+               c++;
+              
+           }
+           else{
+               return false;
+           
+           }
+       }
+       function priya2(){
+           var table4= document.getElementById('lang');
+           var v4 = document.createElement('tr');
+           if(c1 <= 3)
+               {
+                   v4.innerHTML='<tr> <td><b><select name="language" id="language"> <option value="hindi">Hindi</option> <option value="English">English</option> <option value="Gujarati">Gujarati</option> </select><b></td> <td><b> <input type="checkbox" id="read" name="read" value="read">Read <input type="checkbox" id="write" name="write" value="Write">Write <input type="checkbox" id="speak" name="Speak" value="Speak">Speak<b></td>  </tr><br><br>';
+                   table4.append(v4);
+                   c1++;
+               }
+               else{
+                   return false;
+           
+               }
+           }
+       //
+
+       async function getcity(state){
+            console.log(state);
+            console.log(state.value);
+            const ans = await fetch(`http://localhost:5002/getcity?stateid=${state.value}`);
+            const data = await ans.json();
+            var selectcity = document.getElementById('selectcity');
+            selectcity.innerHTML='';
+            for(let i=0;i<data.length; i++){
+               const option = new Option(data[i].city_name,data[i].city_name);
+               selectcity.add(option);
+            }
+
+       }
+       //
+       function validateZip() {
+      var zip = document.getElementById("zip").value;
+
+      if (zip == null || zip == "") {
+        document.getElementById("zip-error").innerHTML = "Please enter zipcode";
+        return false;
+      } else if (isNaN(zip) || zip.length > 10) {
+        document.getElementById("zip-error").innerHTML =
+          "Please enter valid zipcode";
+        return false;
+      } else {
+        document.getElementById("zip-error").innerHTML = "";
+      }
+      return true;
+    }
+
+    function fnameValidate() {
+      var fname = document.getElementById("first_name").value;
+      if (fname == null || fname == "") {
+        document.getElementById("fname-error").innerHTML =
+          "Please enter First Name";
+        return false;
+      } else if (!isNaN(fname)) {
+        document.getElementById("fname-error").innerHTML =
+          "Please enter valid firstname";
+        return false;
+      } else {
+        document.getElementById("fname-error").innerHTML = "";
+      } 
+      
+    }
+
+    function validateContact() {
+      var contact = document.getElementById("contact").value;
+      //contact = parseInt(contact, 10);
+
+      if (contact == null || contact == "") {
+        document.getElementById("contact-error").innerHTML = "Please enter age";
+        return false;
+      } else if (isNaN(contact) || contact.length > 10 || contact.length < 10) {
+        document.getElementById("contact-error").innerHTML =
+          "Please enter valid contact";
+        return false;
+      } else {
+        document.getElementById("contact-error").innerHTML = "";
+      }
+      return true;
+    }
+
+   </script>
+    <!-- <script>
+   
+
+
+
+
+    </script> -->
 </html>

@@ -1,401 +1,234 @@
-<html>
-    <head></head>
-    <h2 style="text-align: center;">Job Application Form</h2>
-    <style>
-        
-        .container
-        {
-            flex-direction: row;
-        }
-
-        table{
-            background-color: aliceblue;
-            border-spacing : 15px;  
-            font-size: 18px;
-        }
-        
-        fieldset {
-        background-color: aliceblue;
-        display: block;
-        margin-left: 30px;
-        margin-right: 30px;
-        padding-top: 0.35em;
-        padding-bottom: 0.625em;
-        padding-left: 0.75em;
-        padding-right: 0.75em;
-
-        border: 2px groove (internal value);
-        }
-    </style>
-    <script>
-        var s="";
-        var clk =1;
-        var c1=1;
-        var c=1;
-        var k=1;
-        var p="";
-        var q="";
-        var r="";
-
-        function priya4(){
-            var table= document.getElementById('languages');
-            var v1 = document.createElement('tr');
-            if(k <= 3)
-                {
-                    v1.innerHTML='<tr> <td><select name="language" id="language"> <option value="php">php</option> <option value="Python">Python</option> <option value="Android">Android</option> <option value="ios">ios</option> </select></td> <td><input type="radio" id="Beginer" name="tech" value="Beginer">Beginer <input type="radio" id="Beginer" name="tech" value="Beginer">Mediator <input type="radio" id="Expert" name="tech" value="Expert">Expert<b></td> </tr><br><br>';
-                    table.append(v1);
-                    k++;
-                   // return false;
-                }
-                else
-                {
-                    return false;
-                }
-                
-            }
-        function priya(){
-            var table2= document.getElementById('education_details');
-            var v2 = document.createElement('tr');
-            if(clk <= 3)
-                {
-                    v2.innerHTML=' <tr> <td><b>Course Name<b></td> <td><b><select name="course" id="course"> <option value="ssc">ssc</option> <option value="hsc">hsc</option> </select><b></td> <td><b>University/Board<b></td> <td><input  type="text"  /></td> <td><b>Passing year<b></td> <td><input  type="text"  /></td> <td><b>Percentage<b></td> <td><input  type="text"  /></td> </tr><br><br>';
-                    table2.append(v2);
-                    clk++;
-                    }
-                    else{
-                    return false;
-                }
-            }
-        function priya1(){
-            var table3= document.getElementById('experience');
-            var v3 = document.createElement('tr');
-        if(c <= 3)
-            {
-                v3.innerHTML=' <tr> <td><b>Company Name<b></td> <td><input  type="text"  /></td> <td><b>Designation<b></td> <td><input  type="text"  /></td> <td><b>From date*</b></td> <td><input  type="date"  /></td> <td><b>To date*</b></td> <td><input  type="date"  /></td>  </tr><br><br>';
-                table3.append(v3);
-                c++;
-               
-            }
-            else{
-                return false;
-            
-            }
-        }
-        function priya2(){
-            var table4= document.getElementById('lang');
-            var v4 = document.createElement('tr');
-            if(c1 <= 3)
-                {
-                    v4.innerHTML='<tr> <td><b><select name="language" id="language"> <option value="hindi">Hindi</option> <option value="English">English</option> <option value="Gujarati">Gujarati</option> </select><b></td> <td><b> <input type="checkbox" id="read" name="read" value="read">Read <input type="checkbox" id="write" name="write" value="Write">Write <input type="checkbox" id="speak" name="Speak" value="Speak">Speak<b></td>  </tr><br><br>';
-                    table4.append(v4);
-                    c1++;
-                }
-                else{
-                    return false;
-            
-                }
-            }
-        
-            function ValidateForm()
-            {
-               
-                var name =
-                    document.myForm.fname.value;
-                var email =
-                    document.forms.RegForm.EMail.value;
-                var phone =
-                    document.forms.RegForm.Telephone.value;
-                var what =
-                    document.forms.RegForm.Subject.value;
-                var password =
-                    document.forms.RegForm.Password.value;
-                var address =
-                    document.forms.RegForm.Address.value;
-                var regEmail=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/g;  //Javascript reGex for Email Validation.
-                var regPhone=/^\d{10}$/;                                        // Javascript reGex for Phone Number validation.
-                var regName = /\d+$/g;                                    // Javascript reGex for Name validation
- 
-                if (name == "" || regName.test(name)) {
-                    window.alert("Please enter your name properly.");
-                    name.focus();
-                    return false;
-                }
- 
-                if (address == "") {
-                    window.alert("Please enter your address.");
-                    address.focus();
-                    return false;
-                }
-                 
-                if (email == "" || !regEmail.test(email)) {
-                    window.alert("Please enter a valid e-mail address.");
-                    email.focus();
-                    return false;
-                }
-                  
-                
-                if (phone == "" || !regPhone.test(phone)) {
-                    alert("Please enter valid phone number.");
-                    phone.focus();
-                    return false;
-                }
- 
-                if (what.selectedIndex == -1) {
-                    alert("Please enter your course.");
-                    what.focus();
-                    return false;
-                }
- 
-                return true;
-            
-
-            }
-    </script>
-    <body bgcolor="#F9EEF7" >
-        <form id="EmploymentApplication100" name="myForm" method="post" onsubmit="return ValidateForm();">
-        
-            <fieldset style="padding: 10; margin-top: 10px; border-radius: 5px; border: 2px solid rgb(22, 98, 111); ">
-                <legend style="border: 2px solid rgb(22, 98, 111); color: rgb(7, 74, 52); background-color: rgb(250, 251, 253);font-size: 20px;margin-left: 15px;"><b>Basic Details</b></legend>
-                    <table>
-                        <tr>
-                            <td><b> First name *<b></td>
-                           <td><input  type="text" name="fname"  /></td>
-                            
-                           <td class="space"><b>Last name *</b></td>
-                           <td><input type="text"  /></td>
-                        
-                        </tr>
-                        <tr>
-                            <td><b> Designation *<b></td>
-                           <td><input  type="text" /></td>
-                            
-                           <td><b>Address1*</b></td>
-                           <td><input  type="text"  /></td>
-                        
-                        </tr>
-                        <tr>
-                            <td><b> Email *<b></td>
-                           <td><input  type="text"  /></td>
-                            
-                           <td><b>Address2*</b></td>
-                           <td><input  type="text"  /></td>
-                        
-                        </tr>
-                        <tr>
-                            <td><b> Phone Number *<b></td>
-                           <td><input  type="text"  /></td>
-                            
-                           <td><b>City<b></td>
-                            <td><select name="city" id="city">
-                                <option value="volvo">Ahmedabad</option>
-                                <option value="saab">Surat</option>
-                                <option value="mercedes">Rajkot</option>
-                                <option value="audi">Baroda</option>
-                            </select></td>
-                        </tr>
-                        <tr>
-                            <td><b>Gender<b></td>
-                            <td><input type="radio" id="Male" name="fav_language" value="Male">Male                       
-                            <input type="radio" id="Female" name="fav_language" value="Female">Female
-                            <input type="radio" id="others" name="fav_language" value="Others">Others<b></td>
-                            
-                            <td><b>Zip Code<b></td>
-                            <td><input  type="text"  /></td>
-                            
-                        </tr>
-
-                        <tr>
-    
-                            
-                           <td><b>Relationship Status<b></td>
-                            <td><select name="relation" id="relation">
-                                <option value="Single">Single</option>
-                                <option value="Married">Married</option>
-                                <option value="Divorced">Divorced</option>
-                                
-                            </select></td>
-
-                            <td><b>Date Of Birth*</b></td>
-                            <td><input  type="date"  /></td>
-                        </tr>
-                </table>
-                </fieldset>
-
-                <fieldset style="padding: 10; margin-top: 30px; border-radius: 5px;border: 2px solid rgb(22, 98, 111);">
-                    <legend  style="border: 2px solid rgb(22, 98, 111);background-color: rgb(250, 251, 253);font-size: 20px;margin-left: 15px;"><b>Education Details</b></legend>
-                        <table id="education_details">
-                            
-                            <tr>  
-                               <td><b>Course Name<b></td>
-                                <td><b><select name="course" id="course">
-                                    <option value="ssc">ssc</option>
-                                    <option value="hsc">hsc</option>
-                                   
-                                </select><b></td>
-
-                                <td><b>University/Board<b></td>
-                                <td><input  type="text"  /></td>
-
-                                <td><b>Passing year<b></td>
-                                <td><input  type="text"  /></td>
-                            
-                                <td><b>Percentage<b></td>
-                                <td><input  type="text"  /></td>
-                               
-                                
-                                <td><input  type="button" value="+" onclick="priya()" /><b></td>
-                            
-                            </tr>
-                           
-                    </table>
-                    <p id="p1"></p>
-                    </fieldset>
+var mysql = require('mysql2');
+var express = require('express');
+var app = express();
+app.set('view engine', 'ejs')
+var bodyParser = require('body-parser');
+const bcrypt = require('bcrypt');
+const { response } = require('express');
+const jwt = require("jsonwebtoken");
+const cookieParser = require("cookie-parser");
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
+app.use(express.static('assets'));
+var util = require('util');
 
 
-                    <fieldset style="padding: 10; margin-top: 30px; border-radius: 5px; border: 2px solid rgb(22, 98, 111);">
-                        <legend  style="border: 2px solid rgb(22, 98, 111);background-color: rgb(250, 251, 253);font-size: 20px;margin-left: 15px;"><b>Work Experience<b></legend>
-                            <table id="experience" >
-                                
-                                <tr>    
-                                    <td><b>Company Name<b></td>
-                                    <td><input  type="text"  /></td>
-    
-                                    <td><b>Designation<b></td>
-                                    <td><input  type="text"  /></td>
-                                
-                                    <td><b>From date*</b></td>
-                                    <td><input  type="date"  /></td>
+var connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'root',
+  database: 'form'
+});
 
-                                    <td><b>To date*</b></td>
-                                    <td><input  type="date"  /></td>
 
-                                    <td><input  type="button" value="+" onclick="priya1()" /><b></td>
-                                
-                                </tr>
-                               
-                        </table>
-                        <p id="p2"></p>
-                        </fieldset>
-                       
-                        <fieldset style="padding: 10; margin-top: 30px;border-radius: 5px; border: 2px solid rgb(22, 98, 111);" >
-                            <legend  style="border: 2px solid rgb(22, 98, 111);background-color: rgb(250, 251, 253);font-size: 20px;margin-left: 15px;"><b>Language Known</b></legend>
-                                <table id="lang">
-                                    
-                                    <tr>
-                                     
-                                    <td><b><select name="language" id="language">
-                                    <option value="hindi">Hindi</option>
-                                    
-                                    <option value="English">English</option>
-                                    <option value="Gujarati">Gujarati</option>
-                                   
-                                    </select><b></td>
 
-                                    
-                                    <td><b>
-                                    <input type="checkbox" id="read" name="read" value="read">Read
-                                   
-                                    <input type="checkbox" id="write" name="write" value="Write">Write
-                                    
-                                    <input type="checkbox" id="speak" name="Speak" value="Speak">Speak<b></td>
-                                    <td><input  type="button" value="+" onclick="priya2()"/><b></td>
-                                    
-                                    </tr>
-                                   
-                            </table>
-                            <p id="p3"></p>
-                            </fieldset>
 
-                            <fieldset style="padding: 10; margin-top: 30px;border-radius: 5px; border: 2px solid rgb(22, 98, 111);" >
-                            <legend  style="border: 2px solid rgb(22, 98, 111);background-color: rgb(250, 251, 253);font-size: 20px;margin-left: 15px;"><b>Technologies you know</b></legend>
-                                <table id="languages" >
-                                    <tr>
-                                        <td><select name="language" id="language">
-                                            <option value="php">php</option>
-                                            <option value="Python">Python</option>
-                                            <option value="Android">Android</option>
-                                            <option value="ios">ios</option>
-                                        </select></td>
-                                        <td><input type="radio" id="Beginer" name="tech" value="Beginer">Beginer                       
-                                        <input type="radio" id="Beginer" name="tech" value="Beginer">Mediator
-                                        <input type="radio" id="Expert" name="tech" value="Expert">Expert<b></td>
-                                            <td><input  type="button" value="+" name="tech" onclick="priya4()"/><b></td>
-                                    
-                                    </tr>
-                                   
-                            </table>
-                            <p id="p4"></p>
-                            </fieldset>
+connection.connect((err) => {
+  if (err)
+    throw err;
+  console.log("connected");
+})
 
-                            <fieldset style="padding: 10; margin-top: 30px;border-radius: 5px; border: 2px solid rgb(22, 98, 111);">
-                                <legend  style="border: 2px solid rgb(22, 98, 111);background-color: rgb(250, 251, 253);font-size: 20px;margin-left: 15px;"><b>Reference Contact</b></legend>
-                                    <table >
-                                        
-                                        <tr>
-                                            <td><b>  Name <b></td>
-                                           <td><input  type="text"  /></td>
-                                            
-                                           <td><b>Contact number </b></td>
-                                           <td><input type="text"  /></td>
-                                        
-                                           <td><b>Relation </b></td>
-                                           <td><input type="text"  /></td>
-                                        
-                                        </tr>
-                                       
-                                        <tr>
-                                            <td><b>  Name <b></td>
-                                           <td><input  type="text"  /></td>
-                                            
-                                           <td><b>Contact number </b></td>
-                                           <td><input type="text"  /></td>
-                                        
-                                           <td><b>Relation </b></td>
-                                           <td><input type="text"  /></td>
-                                        
-                                        </tr>
-                                       
-                                </table>
-                                </fieldset>
-                        </div>
-                                <fieldset style="padding: 10; margin-top: 30px;border-radius: 5px; border: 2px solid rgb(22, 98, 111);">
-                                    <legend  style="border: 2px solid rgb(22, 98, 111);background-color: rgb(250, 251, 253);font-size: 20px;margin-left: 15px;"><b>Preferences</b></legend>
-                                        <table >
-                                            
-                                            <tr>
-                                                <td><b>Prefered Location<b></td>
-                                                <td><select name="course" id="course">
-                                                    <option value="itemone">Item one</option>
-                                                    <option value="itemtwo">Item two</option>
-                                                   
-                                                </select></td>
-                                                
-                                               <td><b>Notice Period *</b></td>
-                                               <td><input type="text"  /><b></td>
-                                            
-                                               <td><b>Development<b></td>
-                                               <td><select name="course" id="course">
-                                                   <option value="design">Design</option>
-                                                   <option value="Marketing">Marketing</option>
-                                                  
-                                               </select></td>
-                                            
-                                            </tr>
-                                           
-                                            <tr>
-                                             
-                                               <td><b>Expected ctc *</b></td>
-                                               <td><input type="text"  /></td>
-                                            </tr>
-                                            <tr>
-                                               <td><b>current ctc *</b></td>
-                                               <td><input type="text"  /></td>
-                                            
-                                            </tr>
-                                           
-                                    </table>
-                                    </fieldset>
 
-       <input type="submit" style="margin-left: 600;margin-right: 300;margin-top: 10px;background-color: aquamarine;padding: 10;font-size: 20;border-radius: 5px;">
-    </body>
-</html>
+app.get('/login', (req, response) => {
+
+  var token = req.cookies.jwtToken;
+  if (token) {
+    //const token = jwt.verify(token,"priya");
+    response.redirect("home");
+  }
+  else {
+    response.render('login');
+  }
+});
+
+app.get('/register', (req, response) => {
+
+  var token = req.cookies.jwtToken;
+  if (token) {
+    // const token = jwt.verify(token,"priya");
+    response.redirect("home");
+  }
+  else {
+    response.render('registration');
+  }
+});
+
+app.get('/loginValidate', (req, response) => {
+
+  var email = req.query.email;
+  var password = req.query.password;
+
+  console.log(email);
+  console.log(password);
+  //  var sql = `SELECT email FROM registration`;
+  connection.query(`SELECT email and password FROM registration where email='${email}',password='${password}'`, (error, result) => {
+    if (error) throw error;
+    // const myJSON = JSON.stringify(result);
+    // console.log(result);
+    // if(result == ""){
+    // res.json({exist : false});
+    // }else{
+    // res.json({exist : true});
+    // }
+    // console.log("result"+result)
+  })
+});
+
+app.get('/logout', (req, res) => {
+  res.clearCookie('jwtToken');
+  res.redirect("/register");
+})
+
+
+app.get('/home', (req, res) => {
+  var token = req.cookies.jwtToken;
+  if (!token) {
+    return res.send('you are not authorized user<a href="/register">register</a>');
+  }
+})
+app.get('/resetpass?', (req, res) => {
+  const email = req.query.email;
+  console.log(email);
+  res.render('resetpassword', { email });
+})
+
+app.get('/forgotpassword', (req, res) => {
+  res.render('forgotpassword');
+})
+
+app.post('/forgotpassword', (req, res) => {
+  var email = req.body.email;
+  var activation_token = Math.random().toString(36).substring(2, 15);
+  console.log(activation_token);
+  var activation_link = ` http://localhost:5002/resetpass?token=${activation_token}&email=${email}`;
+  res.send(`<a href="${activation_link}">Click here to reset your password</a>`)
+})
+
+app.post('/register', async (req, res) => {
+
+  var pass = req.body.password;
+  var uname = req.body.uname;
+  var email = req.body.email;
+  var cpass = req.body.cpassword;
+  var hash1 = await bcrypt.hash(pass, 10);
+  console.log(uname);
+  console.log(cpass);
+  console.log(hash1);
+  console.log(pass);
+  console.log(email);
+
+  var activation_token = Math.random().toString(36).substring(2, 15);
+  console.log(activation_token);
+
+  // connection.query(`select email from registration where email='${email}'`,(error,result)=>{
+
+  // console.log(result);
+  // if(result == ""){
+  connection.query(`insert into registration(username,email,password,confirm_password,activation_key)values('${uname}','${email}','${hash1}','${cpass}','${activation_token}')`, (error, data) => {
+    if (error) throw error;
+    console.log("Data registered successfully");
+    var activation_link = ` http://localhost:5002/activate?token=${activation_token}`;
+    res.send(`<a href="${activation_link}">Click here to activate your account</a>`)
+  });
+  // res.render('login');
+  //  }
+  //   else{
+  //     res.send('email already exists');
+  //   }
+  // });
+
+});
+
+app.get("/emailValidate?", async (req, res) => {
+
+
+  var email = req.query.email;
+  console.log(email);
+  //  var sql = `SELECT email FROM registration`;
+  connection.query(`SELECT email FROM registration where email='${email}'`, (error, result) => {
+    if (error) throw error;
+    // const myJSON = JSON.stringify(result);
+    console.log(result);
+    if (result == "") {
+      res.json({ exist: false });
+    } else {
+      res.json({ exist: true });
+    }
+    console.log("result" + result)
+  })
+})
+
+app.post("/changepass", async (req, res) => {
+  var pass = req.body.password;
+  var email = req.body.email;
+  var hash1 = await bcrypt.hash(pass.toString(), 10);
+  console.log('hash1' + hash1);
+  console.log(pass);
+  connection.query(`update registration set password='${hash1}',confirm_password='${pass}' where email = '${email}'`, (error, result) => {
+
+    //var result = await connection.execute(varifyUser);
+    if (error) throw error;
+    res.render('login');
+    console.log("password update successfully")
+  });
+
+})
+
+
+app.get("/activate?", async (req, res) => {
+  var token = req.query.token;
+  connection.query(`update registration set isactivated=1 where activation_key="${token}"`, (error, result) => {
+
+    console.log(result)
+    if (result.affectedRows == 0) {
+      res.send("not activated")
+    } else {
+      //res.send("Your account is activated");
+      res.render('login');
+    }
+  })
+})
+
+app.post("/login", async (req, res) => {
+
+  const { email, password } = req.body;
+  console.log(email);
+  console.log(password);
+  connection.query(`select * from registration where email = '${email}'`, async (error, result) => {
+
+    //var result = await connection.execute(varifyUser);
+    console.log(result);
+    if (result[0].length == 0) {
+      return res.send("user not found")
+    }
+    //console.log(result[0]);
+    const data = result[0];
+    //comparing password
+    let bpass = result[0].password;
+    console.log("bpass", bpass)
+
+    let eid = result[0].id;
+    console.log('eid:'+eid)
+    var match = await bcrypt.compare(password, bpass);
+    console.log(match);
+    if (!match) {
+      return res.send(`wrong password!`)
+    }
+
+    //generating jwt token
+    const jwtToken = jwt.sign(data, "priya");
+    res.cookie("jwtToken", jwtToken);
+    const tokenData = jwt.verify(jwtToken, "priya");
+    console.log(tokenData);
+    res.render("home", { tokenData });
+  });
+
+})
+
+
+app.listen(5000, () => {
+    console.log('port running at ' + 5000)
+  });
+  
